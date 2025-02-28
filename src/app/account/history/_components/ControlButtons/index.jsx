@@ -1,6 +1,6 @@
 "use client";
 import styles from "./styles.module.css";
-import Modal from "@/app/_components/Modal/Index";
+import Modal from "@/app/_components/Modal";
 import ReservationOverview from "../ReservationOverview";
 import DeleteForm from "../DeleteFrom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
