@@ -1,7 +1,7 @@
 import styles from "./styles.module.css";
 import Heading from "@/app/_ui/Heading";
 import ProfileForm from "./_components/ProfileForm";
-import { auth } from "@/auth";
+import { auth } from "../../../../auth";
 import {
   getGuestById,
   updateGuest,

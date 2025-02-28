@@ -1,6 +1,6 @@
 import { redirect } from "next/navigation";
 import SignUpForm from "@/app/signup/_components/SignUpForm";
-import { auth } from "@/auth";
+import { auth } from "../../../auth";
 import Banner from "../_components/Banner";
 import { cookies } from "next/headers";
 

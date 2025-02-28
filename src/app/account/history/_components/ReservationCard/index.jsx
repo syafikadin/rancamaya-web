@@ -2,13 +2,13 @@ import Image from "next/image";
 import styles from "./styles.module.css";
 
 import Badge from "@/app/_ui/Badge";
-import { auth } from "@/auth";
 import { deleteReservation, getReservationByID } from "@/app/_lib/supabase/reservations";
 import { revalidatePath } from "next/cache";
 import ControlButtons from "../ControlButtons";
 import { reservationCancelAction, reservationUpdateAction } from "@/app/_lib/actions";
 import { formatToAbrFormat } from "@/app/utils/datetime";
 import { differenceInDays, isFuture, isPast } from "date-fns";
+import { auth } from "../../../../../../auth";
 
 const SUPABASE_ROOMS_URL = process.env.NEXT_PUBLIC_SUPABASE_IMGS_URL;
 
@@ -21,14 +21,22 @@ function ReservationCard({ reservation }) {
     const session = await auth();
     const active_user = session?.user;
 
-    if (!active_user) return { ...prevState, error: "unauthorized action, please authenticate and try again" };
+    if (!active_user)
+      return {
+        ...prevState,
+        error: "unauthorized action, please authenticate and try again",
+      };
 
     const targeted_reservation = await getReservationByID(reservation.id);
 
     if (targeted_reservation.status === "confirmed")
-      return { ...prevState, error: "Cannot delete active reservations! You may want to cancel it instead" };
+      return {
+        ...prevState,
+        error: "Cannot delete active reservations! You may want to cancel it instead",
+      };
 
-    if (targeted_reservation.guest_id !== active_user.id) return { ...prevState, error: "unauthorized action!" };
+    if (targeted_reservation.guest_id !== active_user.id)
+      return { ...prevState, error: "unauthorized action!" };
 
     await deleteReservation(session.supabaseAccessToken, reservation.id);
     revalidatePath("/account/history");
@@ -51,11 +59,17 @@ function ReservationCard({ reservation }) {
             <span>{reservation.rooms.name}</span>
 
             {isPast(reservation.start_date) && isFuture(reservation.end_date) ? (
-              <span className={`${styles.onGoing} ${styles.reservationEstimation}`}>ON GOING</span>
+              <span className={`${styles.onGoing} ${styles.reservationEstimation}`}>
+                ON GOING
+              </span>
             ) : isFuture(reservation.start_date) ? (
-              <span className={`${styles.future} ${styles.reservationEstimation}`}>FUTURE</span>
+              <span className={`${styles.future} ${styles.reservationEstimation}`}>
+                FUTURE
+              </span>
             ) : isPast(reservation.end_date) ? (
-              <span className={`${styles.past} ${styles.reservationEstimation}`}>PAST</span>
+              <span className={`${styles.past} ${styles.reservationEstimation}`}>
+                PAST
+              </span>
             ) : (
               ""
             )}
@@ -65,8 +79,8 @@ function ReservationCard({ reservation }) {
           </p>
 
           <p>
-            <span className={styles.price}>${reservation.reserved_price.toFixed(2)}</span> - {reservation.guests_count}{" "}
-            Guest(s)
+            <span className={styles.price}>${reservation.reserved_price.toFixed(2)}</span>{" "}
+            - {reservation.guests_count} Guest(s)
           </p>
 
           {/* CREATE A SEPARATED COMPONENT FOR THE STATUS AS BADGE */}

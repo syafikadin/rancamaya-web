@@ -3,7 +3,7 @@ import { getReservationByStripeSessionId } from "../_lib/supabase/reservations";
 import { notFound, redirect } from "next/navigation";
 import SuccessPage from "./_components/SuccessPage/SuccessPage";
 import ExpirePage from "./_components/ExpirePage/ExpirePage";
-import { auth } from "@/auth";
+import { auth } from "../../../auth";
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
 
 export const metadata = {

@@ -2,7 +2,7 @@ import Banner from "@/app/_components/Banner";
 import EditSection from "./_components/EditSection";
 import { notFound } from "next/navigation";
 import { getReservationByID } from "@/app/_lib/supabase/reservations";
-import { auth } from "@/auth";
+import { auth } from "../../../../../auth";
 
 export const metadata = {
   title: "Edit Reservation",
