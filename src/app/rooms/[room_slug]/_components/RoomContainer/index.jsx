@@ -7,13 +7,12 @@ import RoomBookingForm from "../RoomBookingForm";
 import RoomDescription from "../RoomDescription";
 import Facilities from "../Facilities";
 import BookingPolicy from "../BookingPolicy";
-import { getRoomById, getRoomImages } from "@/app/_lib/supabase/rooms";
+// import { getRoomById, getRoomImages } from "@/app/_lib/supabase/rooms";
 import { notFound, redirect } from "next/navigation";
 import { bookingSchema } from "@/app/_lib/zodSchemas";
 import { cookies } from "next/headers";
 
 // const SUPABASE_ROOMS_URL = process.env.NEXT_PUBLIC_SUPABASE_IMGS_URL;
-
 const room_dummy = {
   name: "Deluxe Room",
   description: "A beautiful room with stunning views.",
@@ -33,8 +32,10 @@ async function RoomContainer({ params }) {
 
   if (!room_slug || !/^-?\d+$/.test(room_slug)) notFound();
 
+  // const room = await getRoomById(room_slug);
   const room = room_dummy;
 
+  // const room_images = await getRoomImages(room_slug ?? []);
   const room_images = room_images_dummy;
 
   const images = room_images.map((item) => `/${item.img_path}`);

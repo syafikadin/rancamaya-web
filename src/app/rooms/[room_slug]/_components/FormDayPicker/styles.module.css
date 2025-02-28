@@ -7,13 +7,13 @@
 }
 
 .datepickerToday {
-  color: rgb(190, 13, 48);
+  color: #386c64;
   font-weight: 600;
 }
 
 .datepickerRangeControlStart, .datepickerRangeControlEnd {
   position: relative;
-  background-color: rgb(209, 17, 55);
+  background-color: #386c64;
   border-radius: 50%;
   color: #fff;
 }
@@ -49,7 +49,7 @@
 }
 
 .chevron {
-  fill: rgb(209, 17, 55);
+  fill: #386c64;
 }
 
 .datepickerFooter {

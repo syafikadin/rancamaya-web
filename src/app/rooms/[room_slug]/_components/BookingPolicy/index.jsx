@@ -11,37 +11,49 @@ function BookingPolicy() {
       <hr className="decriptionDivider" />
 
       <div className={styles.accordion}>
-        <Accordion className={styles.accordionItem} label={"Lorem ipsum dolor sit amet, consectetur adipiscing elit."}>
+        <Accordion
+          className={styles.accordionItem}
+          label={"Lorem ipsum dolor sit amet, consectetur adipiscing elit."}
+        >
           <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing
-            elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur
-            adipiscing elit.
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit
+            amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur
+            adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
           </p>
           <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing
-            elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit
+            amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur
+            adipiscing elit.
           </p>
         </Accordion>
-        <Accordion className={styles.accordionItem} label={"Lorem ipsum dolor sit amet, consectetur adipiscing elit."}>
+        <Accordion
+          className={styles.accordionItem}
+          label={"Lorem ipsum dolor sit amet, consectetur adipiscing elit."}
+        >
           <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing
-            elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur
-            adipiscing elit.
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit
+            amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur
+            adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
           </p>
           <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing
-            elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit
+            amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur
+            adipiscing elit.
           </p>
         </Accordion>
-        <Accordion className={styles.accordionItem} label={"Lorem ipsum dolor sit amet, consectetur adipiscing elit."}>
+        <Accordion
+          className={styles.accordionItem}
+          label={"Lorem ipsum dolor sit amet, consectetur adipiscing elit."}
+        >
           <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing
-            elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur
-            adipiscing elit.
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit
+            amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur
+            adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
           </p>
           <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing
-            elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit
+            amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur
+            adipiscing elit.
           </p>
         </Accordion>
       </div>
