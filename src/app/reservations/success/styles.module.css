@@ -1,0 +1,100 @@
+.container {
+    background-color: #f3f4f6;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .card {
+    background-color: #ffffff;
+    padding: 2rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 1200px;
+  }
+  
+  .title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #b91c1c;
+    margin-bottom: 1rem;
+  }
+  
+  .divider {
+    border: 1px solid #b91c1c;
+    margin-bottom: 1.5rem;
+  }
+  
+  .grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .column {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .detail {
+    margin-bottom: 1rem;
+  }
+  
+  .label {
+    color: #4b5563;
+  }
+  
+  .value {
+    font-size: 1.125rem;
+    font-weight: 600;
+  }
+  
+  .imageContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .image {
+    border-radius: 0.5rem;
+    border: 2px solid #b91c1c;
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+  }
+  
+  .buttons {
+    margin-top: 1.5rem;
+    display: flex;
+    gap: 1rem;
+  }
+  
+  .downloadButton {
+    background-color: #b91c1c;
+    color: #ffffff;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .returnButton {
+    border: 1px solid #b91c1c;
+    color: #b91c1c;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    background-color: transparent;
+    cursor: pointer;
+  }
+  
+  @media (min-width: 768px) {
+    .grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  
+    .imageContainer {
+      grid-column: span 1;
+    }
+  }

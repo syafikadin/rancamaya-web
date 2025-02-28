@@ -1,6 +1,6 @@
 import { redirect } from "next/navigation";
 import SigninForm from "./_components/SigninForm";
-import { auth } from "@/auth";
+// import { auth } from "@/auth";
 import Banner from "../_components/Banner";
 
 export const metadata = {
@@ -9,8 +9,8 @@ export const metadata = {
 };
 
 async function Page() {
-  const session = await auth();
-  if (session?.user) redirect("/account/history");
+  // const session = await auth();
+  // if (session?.user) redirect("/account/history");
 
   return (
     <>

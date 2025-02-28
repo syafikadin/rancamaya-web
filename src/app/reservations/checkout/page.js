@@ -1,6 +1,6 @@
 import Banner from "@/app/_components/Banner";
 import CheckoutForm from "./_components/CheckoutSection";
-import { auth } from "@/auth";
+// import { auth } from "@/auth";
 import { redirect } from "next/navigation";
 
 export const metadata = {
@@ -9,9 +9,9 @@ export const metadata = {
 };
 
 async function Page() {
-  const session = await auth();
+  // const session = await auth();
 
-  if (!session) return redirect("/signin");
+  // if (!session) return redirect("/signin");
 
   return (
     <>

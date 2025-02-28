@@ -5,7 +5,7 @@ import Image from "next/image";
 
 import { bookingTotalPrice, nightTotalPrice } from "@/app/utils/reservationsCalcs";
 
-const SUPABASE_ROOMS_URL = process.env.NEXT_PUBLIC_SUPABASE_IMGS_URL;
+// const SUPABASE_ROOMS_URL = process.env.NEXT_PUBLIC_SUPABASE_IMGS_URL;
 
 function CheckoutOverview({ room, pending_reservation }) {
   const totalNights = daysDifferCount(
@@ -25,11 +25,7 @@ function CheckoutOverview({ room, pending_reservation }) {
     <div>
       <Card>
         <Card.Thumbnail>
-          <Image
-            fill
-            src={`${SUPABASE_ROOMS_URL}/${room.thumbnail}`}
-            alt={`${room.name} thumbnail`}
-          />
+          <Image fill src={`/${room.thumbnail}`} alt={`${room.name} thumbnail`} />
         </Card.Thumbnail>
 
         <Card.Description className={styles.overviewDescription}>
@@ -53,25 +49,55 @@ function CheckoutOverview({ room, pending_reservation }) {
           <div className={styles.bookingSummary}>
             <h3>Pricing Breakdown</h3>
             <p>
-              <span>${room.price} x night (Base Rate for 1 Guest)</span>
-              <span>${room.price.toFixed(2)}</span>
+              <span>
+                {new Intl.NumberFormat("id-ID", {
+                  style: "currency",
+                  currency: "IDR",
+                }).format(room.price)}{" "}
+                x night (Base Rate for 1 Guest)
+              </span>
+              <span>
+                {new Intl.NumberFormat("id-ID", {
+                  style: "currency",
+                  currency: "IDR",
+                }).format(room.price)}
+              </span>
             </p>
             <p>
               <span>
-                Additional Guests ({pending_reservation.guests_count - 1} x $
-                {room.price / 2}per night)
+                Additional Guests ({pending_reservation.guests_count - 1} x
+                {new Intl.NumberFormat("id-ID", {
+                  style: "currency",
+                  currency: "IDR",
+                }).format(room.price / 2)}{" "}
+                per night)
               </span>
-              <span>${guestsPrice}</span>
+              <span>
+                {new Intl.NumberFormat("id-ID", {
+                  style: "currency",
+                  currency: "IDR",
+                }).format(guestsPrice)}
+              </span>
             </p>
             <p>
               <span>Total per Night: </span>
-              <span>${totalPerNight}</span>
+              <span>
+                {new Intl.NumberFormat("id-ID", {
+                  style: "currency",
+                  currency: "IDR",
+                }).format(totalPerNight)}
+              </span>
             </p>
           </div>
 
           <div className={styles.totalPrice}>
             <span>Total Without Taxes ({totalNights} Nights)</span>
-            <span>${totalPrice}</span>
+            <span>
+              {new Intl.NumberFormat("id-ID", {
+                style: "currency",
+                currency: "IDR",
+              }).format(totalPrice)}
+            </span>
           </div>
         </Card.Description>
       </Card>

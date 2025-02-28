@@ -7,18 +7,17 @@ import Link from "next/link";
 import toast, { Toaster } from "react-hot-toast";
 import { useEffect } from "react";
 
-const SUPABASE_ROOMS_URL = process.env.NEXT_PUBLIC_SUPABASE_IMGS_URL;
+// const SUPABASE_ROOMS_URL = process.env.NEXT_PUBLIC_SUPABASE_IMGS_URL;
 
-async function SuccessPage({ reservation }) {
-  if (reservation.status?.toLowerCase() === "confirmed")
-    try {
-      await fetch(
-        `${process.env.NEXT_PUBLIC_APP_URL}/api/clear-pending-reservation`,
-        { method: "POST" }
-      );
-    } catch (err) {
-      console.log({ err });
-    }
+function SuccessPage({ reservation }) {
+  // if (reservation.status?.toLowerCase() === "confirmed")
+  //   try {
+  //     await fetch(`${process.env.NEXT_PUBLIC_APP_URL}/api/clear-pending-reservation`, {
+  //       method: "POST",
+  //     });
+  //   } catch (err) {
+  //     console.log({ err });
+  //   }
   return (
     <>
       <Banner title={"CHECKOUT OVERVIEW"} />
@@ -54,7 +53,7 @@ async function SuccessPage({ reservation }) {
           </div>
           <div className={`${styles["room-preview"]}`}>
             <Image
-              src={`${SUPABASE_ROOMS_URL}/${reservation.rooms.thumbnail}`}
+              src={`/${reservation.rooms.thumbnail}`}
               alt="Room Preview"
               width={800}
               height={264}
@@ -64,9 +63,7 @@ async function SuccessPage({ reservation }) {
         </div>
         <div className={`${styles["action-buttons"]}`}>
           <button
-            onClick={() =>
-              toast.error("This feature hasn't been implemented yet")
-            }
+            onClick={() => toast.error("This feature hasn't been implemented yet")}
             className={`${styles["primary-button"]}`}
           >
             Download Confirmation

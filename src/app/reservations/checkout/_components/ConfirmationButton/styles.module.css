@@ -3,7 +3,7 @@
   border: none;
   outline: none;
   color: #fff;
-  background-color: #dc143c;
+  background-color: #386c64;
   font-size: 17px;
   margin-bottom: 20px;
   display: inline-block;
@@ -13,11 +13,11 @@
 
 
 .formButton:not(:disabled):hover {
-  background-color: rgb(167, 10, 41);
+  background-color: #21564e;
 }
 
 .formButton:disabled {
-  background-color: rgb(240, 87, 118);
+  background-color: #6bdfcd;
   cursor: not-allowed;
 }
 

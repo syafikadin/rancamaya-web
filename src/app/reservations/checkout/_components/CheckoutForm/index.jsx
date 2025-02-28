@@ -29,7 +29,10 @@ function CheckoutForm({ guest, createReservationAction, bookingCancelAction, chi
 
   const errors = Object.values(state)?.filter((item) => item.length);
   console.log(errors);
-  if (errors.length) errors.forEach((item) => toast.error(item ?? "Failed to confirm you booking, please try again"));
+  if (errors.length)
+    errors.forEach((item) =>
+      toast.error(item ?? "Failed to confirm you booking, please try again")
+    );
 
   return (
     <form action={formAction} className={styles.form}>
@@ -42,16 +45,30 @@ function CheckoutForm({ guest, createReservationAction, bookingCancelAction, chi
           <label htmlFor="" className={styles.formLabel}>
             Fullname
           </label>
-          <input type="text" name="fullname" defaultValue={guest.fullname} className={styles.formInput} />
-          {state?.fullname && <span className={styles.errorMessage}>{state?.fullname}</span>}
+          <input
+            type="text"
+            name="fullname"
+            defaultValue={guest.fullname}
+            className={styles.formInput}
+          />
+          {state?.fullname && (
+            <span className={styles.errorMessage}>{state?.fullname}</span>
+          )}
         </div>
 
         <div className={styles.formControl}>
           <label htmlFor="" className={styles.formLabel}>
             NationalID
           </label>
-          <input type="text" name="nationalID" defaultValue={guest.nationalID} className={styles.formInput} />
-          {state?.nationalID && <span className={styles.errorMessage}>{state?.nationalID}</span>}
+          <input
+            type="text"
+            name="nationalID"
+            defaultValue={guest.nationalID}
+            className={styles.formInput}
+          />
+          {state?.nationalID && (
+            <span className={styles.errorMessage}>{state?.nationalID}</span>
+          )}
         </div>
       </div>
 
@@ -59,7 +76,12 @@ function CheckoutForm({ guest, createReservationAction, bookingCancelAction, chi
         <label htmlFor="" className={styles.formLabel}>
           Email Address
         </label>
-        <input type="email" name="email" defaultValue={guest.email} className={styles.formInput} />
+        <input
+          type="email"
+          name="email"
+          defaultValue={guest.email}
+          className={styles.formInput}
+        />
         {state?.email && <span className={styles.errorMessage}>{state?.email}</span>}
       </div>
 
@@ -67,26 +89,38 @@ function CheckoutForm({ guest, createReservationAction, bookingCancelAction, chi
         <label htmlFor="" className={styles.formLabel}>
           Phone Number
         </label>
-        <input type="tel" name="phone" defaultValue={guest.phone} className={styles.formInput} />
+        <input
+          type="tel"
+          name="phone"
+          defaultValue={guest.phone}
+          className={styles.formInput}
+        />
         {state?.phone && <span className={styles.errorMessage}>{state?.phone}</span>}
       </div>
 
       <div className={styles.formControl}>
         <label htmlFor="" className={styles.formLabel}>
           <span>Where are you from?</span>{" "}
-          <span className={styles.countryFlag}>
+          {/* <span className={styles.countryFlag}>
             <img src={guest.countryFlag} alt={`${guest.nationality ?? "country"} flag`} />
-          </span>
+          </span> */}
         </label>
         {children}
-        {state?.nationality && <span className={styles.errorMessage}>{state?.nationality}</span>}
+        {state?.nationality && (
+          <span className={styles.errorMessage}>{state?.nationality}</span>
+        )}
       </div>
 
       <div className={styles.formControl}>
         <label htmlFor="" className={styles.formLabel}>
           More Informations
         </label>
-        <textarea name="message" id="" className={styles.formTextArea} rows={5}></textarea>
+        <textarea
+          name="message"
+          id=""
+          className={styles.formTextArea}
+          rows={5}
+        ></textarea>
         {state?.message && <span className={styles.errorMessage}>{state?.message}</span>}
       </div>
 
