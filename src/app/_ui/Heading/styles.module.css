@@ -6,6 +6,7 @@
   font-weight: bolder;
   letter-spacing: 1px;
   font-size: 32px;
+  color: black;
 }
 
 .heading span::after {
@@ -16,7 +17,7 @@
   transform: rotateZ(44.5deg);
   height: 16px;
   width: 3px;
-  background-color: #dc143c;
+  background-color: #386c64;
 }
 
 .heading span::before {
@@ -27,5 +28,5 @@
   transform: rotateZ(44.5deg);
   height: 16px;
   width: 3px;
-  background-color: #dc143c;
+  background-color: #386c64;
 }

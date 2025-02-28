@@ -9,16 +9,17 @@ function About() {
         <div className={styles.description}>
           <Heading>About Us</Heading>
           <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis perferendis itaque iure consequatur iusto
-            omnis sapiente, doloribus animi velit vero impedit repellendus minus eaque quos voluptatum eum obcaecati
-            ducimus sequi! Blanditiis impedit praesentium labore amet. Numquam molestias, praesentium iste minus quis
-            cupiditate ea voluptatem natus, impedit perferendis distinctio ullam atque enim error, quasi sit? Iure
-            quibusdam aperiam nostrum enim. Sequi.
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis perferendis
+            itaque iure consequatur iusto omnis sapiente, doloribus animi velit vero
+            impedit repellendus minus eaque quos voluptatum eum obcaecati ducimus sequi!
+            Blanditiis impedit praesentium labore amet. Numquam molestias, praesentium
+            iste minus quis cupiditate ea voluptatem natus, impedit perferendis distinctio
+            ullam atque enim error, quasi sit? Iure quibusdam aperiam nostrum enim. Sequi.
           </p>
         </div>
         <div className={styles.gallery}>
           <div>
-            <Image fill src="/bg.png" alt="" />
+            <Image fill src="/bg.jpg" alt="" />
           </div>
         </div>
       </div>

@@ -48,7 +48,7 @@ main {
 /* HEADER */
 
 header {
-  background-color: #fff;
+  background-color: #F1F1F1;
 }
 
 header .header-items {
@@ -90,7 +90,7 @@ header nav ul {
   .navbar ul {
     width: auto;
     position: static;
-    background-color: #fff;
+    background-color: #F1F1F1;
     padding: 0 0;
     flex-direction: row;
   }
@@ -98,11 +98,32 @@ header nav ul {
 
 .navbar ul a {
   color: #161616;
-  transition: all 150ms linear;
+  padding: 8px 12px;
+  border-radius: 5px;
+  transition: background-color 0.3s, color 0.3s;
 }
 
 .navbar ul a:hover, .navbar ul a.active {
-  color: #dc143c;
+  color: white;
+  background-color: #386c64;
+}
+
+.btn-masuk {
+  background-color: #bceae1; 
+  color: #386c64;
+}
+
+.btn-masuk:hover {
+  background-color: #8acec1;
+}
+
+.btn-daftar {
+  background-color: #386c64; 
+  color: white !important
+}
+
+.btn-daftar:hover {
+  background-color: #5b958c !important 
 }
 
 .toggle-menu-button {
@@ -247,7 +268,7 @@ div.slider nav.slider-menu button.active {
   width: 86px;
   height: 2px;
   margin: 12px auto 40px;
-  border: 2px solid rgb(168, 13, 44);
+  border: 2px solid #386c64;
 }
 
 /* GLOBAL LOADING */
