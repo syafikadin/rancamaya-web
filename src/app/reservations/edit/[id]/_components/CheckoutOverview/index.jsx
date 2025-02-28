@@ -1,6 +1,6 @@
 import { daysDifferCount, formatToAbrFormat } from "@/app/utils/datetime";
 import styles from "./styles.module.css";
-import Card from "@/app/_components/Card/Card";
+import Card from "@/app/_components/Card";
 import Image from "next/image";
 
 import { bookingTotalPrice, nightTotalPrice } from "@/app/utils/reservationsCalcs";
@@ -45,12 +45,15 @@ function CheckoutOverview({ reservation, guests, start, end }) {
           <div className={styles.bookingSummary}>
             <h3>Pricing Breakdown</h3>
             <p>
-              <span>${reservation.rooms.price.toFixed(2)} x night (Base Rate for 1 Guest)</span>
+              <span>
+                ${reservation.rooms.price.toFixed(2)} x night (Base Rate for 1 Guest)
+              </span>
               <span>${reservation.rooms.price.toFixed(2)}</span>
             </p>
             <p>
               <span>
-                Additional Guests ({guests - 1} x ${Number(reservation.rooms.price / 2).toFixed(2)}per night)
+                Additional Guests ({guests - 1} x $
+                {Number(reservation.rooms.price / 2).toFixed(2)}per night)
               </span>
               <span>${guestsPrice}</span>
             </p>

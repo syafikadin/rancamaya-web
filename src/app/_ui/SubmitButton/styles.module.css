@@ -1,7 +1,7 @@
 .sendBtn {
   padding: 12px 64px;
   color: #fff;
-  background-color: #303030;
+  background-color: #3D767D;
   transition: all 150ms linear;
   border-radius: 4px;
   font-weight: 600;
@@ -14,7 +14,7 @@
 }
 
 .sendBtn:hover {
-  background-color: #161616;
+  background-color: #1a494f;
 }
 
 .sendBtn:disabled {

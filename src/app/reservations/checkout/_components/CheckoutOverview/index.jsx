@@ -1,6 +1,6 @@
 import { daysDifferCount, formatToAbrFormat } from "@/app/utils/datetime";
 import styles from "./styles.module.css";
-import Card from "@/app/_components/Card/Card";
+import Card from "@/app/_components/Card";
 import Image from "next/image";
 
 import { bookingTotalPrice, nightTotalPrice } from "@/app/utils/reservationsCalcs";
@@ -8,15 +8,28 @@ import { bookingTotalPrice, nightTotalPrice } from "@/app/utils/reservationsCalc
 const SUPABASE_ROOMS_URL = process.env.NEXT_PUBLIC_SUPABASE_IMGS_URL;
 
 function CheckoutOverview({ room, pending_reservation }) {
-  const totalNights = daysDifferCount(pending_reservation.end_date, pending_reservation.start_date);
+  const totalNights = daysDifferCount(
+    pending_reservation.end_date,
+    pending_reservation.start_date
+  );
   const totalPerNight = nightTotalPrice(room.price, pending_reservation.guests_count);
-  const guestsPrice = ((pending_reservation.guests_count - 1) * (room.price / 2)).toFixed(2);
-  const totalPrice = bookingTotalPrice(room.price, pending_reservation.guests_count, totalNights);
+  const guestsPrice = ((pending_reservation.guests_count - 1) * (room.price / 2)).toFixed(
+    2
+  );
+  const totalPrice = bookingTotalPrice(
+    room.price,
+    pending_reservation.guests_count,
+    totalNights
+  );
   return (
     <div>
       <Card>
         <Card.Thumbnail>
-          <Image fill src={`${SUPABASE_ROOMS_URL}/${room.thumbnail}`} alt={`${room.name} thumbnail`} />
+          <Image
+            fill
+            src={`${SUPABASE_ROOMS_URL}/${room.thumbnail}`}
+            alt={`${room.name} thumbnail`}
+          />
         </Card.Thumbnail>
 
         <Card.Description className={styles.overviewDescription}>
@@ -45,7 +58,8 @@ function CheckoutOverview({ room, pending_reservation }) {
             </p>
             <p>
               <span>
-                Additional Guests ({pending_reservation.guests_count - 1} x ${room.price / 2}per night)
+                Additional Guests ({pending_reservation.guests_count - 1} x $
+                {room.price / 2}per night)
               </span>
               <span>${guestsPrice}</span>
             </p>

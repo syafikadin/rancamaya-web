@@ -44,17 +44,24 @@
 
 .roomDescription div a {
   display: inline-block;
-  padding: 12px 16px;
-  background-color: #dc143c;
+  padding: 12px 10px;
+  background-color: #386c64;
   text-decoration: none;
   color: #FFF;
   flex-shrink: 0;
   transition: all 150ms linear;
+  opacity: 0.8;
 }
 .roomDescription div a:hover {
-  background-color: rgb(156, 16, 44);
+  background-color: #224f48;
+  opacity: 1;
 }
 
 .roomTitle {
   font-size: 22px;
+  color: #386c64;
+  text-shadow: -1px -1px 0 #FFF,  
+               1px -1px 0 #FFF,
+              -1px  1px 0 #FFF,
+               1px  1px 0 #FFF;
 }

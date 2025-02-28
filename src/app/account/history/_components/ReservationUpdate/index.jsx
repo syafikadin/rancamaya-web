@@ -1,6 +1,6 @@
 "use client";
 import styles from "./styles.module.css";
-import Card from "@/app/_components/Card/Card";
+import Card from "@/app/_components/Card";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEdit } from "@fortawesome/free-solid-svg-icons";
@@ -8,7 +8,13 @@ import DatePicker from "react-datepicker";
 import { useEffect, useState } from "react";
 
 import "react-datepicker/dist/react-datepicker.css";
-import { addMonths, areIntervalsOverlapping, formatISO, isAfter, isBefore } from "date-fns";
+import {
+  addMonths,
+  areIntervalsOverlapping,
+  formatISO,
+  isAfter,
+  isBefore,
+} from "date-fns";
 import { getRoomReservations } from "@/app/_lib/supabase/reservations";
 
 function ReservationUpdate({ reservation }) {
@@ -42,9 +48,15 @@ function ReservationUpdate({ reservation }) {
 
   function handleDepartureSelect(date) {
     setRangeError("");
-    const selectedDateRange = { start: new Date(formatISO(startDate)), end: new Date(formatISO(date)) };
+    const selectedDateRange = {
+      start: new Date(formatISO(startDate)),
+      end: new Date(formatISO(date)),
+    };
     const isIntersecting = disabledDays.find((range) =>
-      areIntervalsOverlapping(selectedDateRange, { start: new Date(range.start), end: new Date(range.end) })
+      areIntervalsOverlapping(selectedDateRange, {
+        start: new Date(range.start),
+        end: new Date(range.end),
+      })
     );
 
     if (isIntersecting) {
@@ -75,11 +87,13 @@ function ReservationUpdate({ reservation }) {
               <label htmlFor="">Guests</label>
               <select name="" id="" defaultValue={reservation.guests_count}>
                 <option value="">Select guests number</option>
-                {Array.from(Array(reservation.rooms?.capacity ?? 0)).map((item, index) => (
-                  <option key={index} value={index + 1}>
-                    {index + 1}
-                  </option>
-                ))}
+                {Array.from(Array(reservation.rooms?.capacity ?? 0)).map(
+                  (item, index) => (
+                    <option key={index} value={index + 1}>
+                      {index + 1}
+                    </option>
+                  )
+                )}
               </select>
             </div>
             <div className="modal-update-form">

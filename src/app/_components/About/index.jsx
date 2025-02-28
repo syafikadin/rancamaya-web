@@ -9,12 +9,9 @@ function About() {
         <div className={styles.description}>
           <Heading>About Us</Heading>
           <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis perferendis
-            itaque iure consequatur iusto omnis sapiente, doloribus animi velit vero
-            impedit repellendus minus eaque quos voluptatum eum obcaecati ducimus sequi!
-            Blanditiis impedit praesentium labore amet. Numquam molestias, praesentium
-            iste minus quis cupiditate ea voluptatem natus, impedit perferendis distinctio
-            ullam atque enim error, quasi sit? Iure quibusdam aperiam nostrum enim. Sequi.
+            Suryamas was established on 21 September 1989 and obtained its legal status as
+            a private limited company on 31 October 1990 with its main business as real
+            estate developmener in Indonesia.
           </p>
         </div>
         <div className={styles.gallery}>

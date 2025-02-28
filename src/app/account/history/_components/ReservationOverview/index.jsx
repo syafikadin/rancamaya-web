@@ -1,6 +1,6 @@
 "use client";
 import styles from "./styles.module.css";
-import Card from "@/app/_components/Card/Card";
+import Card from "@/app/_components/Card";
 import Image from "next/image";
 
 import { formatToAbrFormat } from "@/app/utils/datetime";
@@ -17,7 +17,13 @@ const SUPABASE_ROOMS_URL = process.env.NEXT_PUBLIC_SUPABASE_IMGS_URL;
 
 const initialState = { error: "" };
 
-function ReservationOverview({ deleteAction, reservation, allowDelete = true, reservationCancelAction, children }) {
+function ReservationOverview({
+  deleteAction,
+  reservation,
+  allowDelete = true,
+  reservationCancelAction,
+  children,
+}) {
   const [showCancel, setShowCancel] = useState(false);
 
   const [state, formAction] = useFormState(reservationCancelAction, initialState);
@@ -96,7 +102,10 @@ function ReservationOverview({ deleteAction, reservation, allowDelete = true, re
           </div>
 
           <div className={styles.actionsContainer}>
-            <Link href={`/reservations/edit/${reservation.id}`} className={styles.editLink}>
+            <Link
+              href={`/reservations/edit/${reservation.id}`}
+              className={styles.editLink}
+            >
               <span>
                 <FontAwesomeIcon icon={faEdit} />
               </span>

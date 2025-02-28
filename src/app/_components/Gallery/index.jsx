@@ -2,8 +2,9 @@ import Heading from "@/app/_ui/Heading";
 import styles from "./styles.module.css";
 import Image from "next/image";
 // import { getAllRooms } from "@/app/_lib/supabase/rooms";
+// const SUPABASE_ROOMS_URL = process.env.NEXT_PUBLIC_SUPABASE_IMGS_URL;
 async function Gallery() {
-  const rooms = [
+  const villas = [
     {
       id: 1,
       name: "One Bedroom",
@@ -44,9 +45,9 @@ async function Gallery() {
   return (
     <section className={styles.gallerySection}>
       <div className="container">
-        <Heading className="text-center">Gallery</Heading>
+        <Heading className="text-center">Vila & Apart</Heading>
         <div className={styles.galleryGrid}>
-          {rooms.map((item) => (
+          {villas.map((item) => (
             <div key={item.id} className={styles.thumbnail}>
               <Image fill src={`/${item.thumbnail}`} alt="" />
             </div>

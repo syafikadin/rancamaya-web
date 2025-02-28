@@ -8,9 +8,22 @@ function Footer() {
         <div>
           <h3>Contact Us</h3>
           <ul>
-            <li>email@gmail.com</li>
-            <li>+212 6 77 88 99 00</li>
-            <li>XYZ Street Agadir</li>
+            <li>
+              <a href="mailto:info@rancamaya.com">info@rancamaya.com</a>
+            </li>
+            <li></li>
+            <li>
+              <a href="tel:+622518242278">+62-251-824 2278</a>
+            </li>
+            <li>
+              <address>
+                Jl. Graha Yasa No. SH-01
+                <br />
+                Rancamaya Golf Estate
+                <br />
+                Ciawi - Bogor 16720
+              </address>
+            </li>
             <li className={styles.icons}></li>
           </ul>
         </div>
@@ -24,14 +37,14 @@ function Footer() {
             <li>
               <Link href="/rooms">Rooms</Link>
             </li>
-
-            {/* <li>Blog</li> */}
+            <li>
+              <Link href="/villas">Villas</Link>
+            </li>
+            <li>
+              <Link href="/golf">Golf</Link>
+            </li>
             <li>
               <Link href={"/contact"}>Contact Us</Link>
-            </li>
-
-            <li>
-              <Link href="/signin">Guest Area</Link>
             </li>
           </ul>
         </div>
