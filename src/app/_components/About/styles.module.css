@@ -39,3 +39,19 @@
   width: 100%;
   aspect-ratio: 16/9;
 }
+
+.aboutButton {
+  background-color: #3D767D;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: 20px;
+  transition: background-color 0.3s;
+}
+
+.aboutButton:hover {
+  background-color: #326c65;
+}

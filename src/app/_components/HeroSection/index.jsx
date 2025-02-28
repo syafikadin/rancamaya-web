@@ -9,32 +9,30 @@ const images = ["/room1.jpg", "/room2.jpg", "/room3.jpg", "/bg.jpg"];
 function HeroSection({ bookingSearchAction }) {
   return (
     <Slider images={images}>
-      <div className={`container ${styles.wrapper}`}>
-        <div className="bookingFormContainer">
-          <BookingForm bookingSearchAction={bookingSearchAction} />
-        </div>
-        <div className={styles.heroTitle}>
-          <p>Find Comfort In a Foriegn Land With Us</p>
-          <p>Book Now, Pay On Arrival</p>
-          <div className={styles.heroCTA}>
-            <Modal>
-              <Modal.ToggleOpen>
-                <BookingButton />
-              </Modal.ToggleOpen>
-              <Modal.Overlay>
-                <Modal.Wrapper>
-                  <BookingForm bookingSearchAction={bookingSearchAction}>
-                    <div>
-                      <Modal.ToggleClose>
-                        <button type="button" className={styles.closeButton}>
-                          Cancel
-                        </button>
-                      </Modal.ToggleClose>
-                    </div>
-                  </BookingForm>
-                </Modal.Wrapper>
-              </Modal.Overlay>
-            </Modal>
+      <div className={styles.overlay}>
+        <div className={`container ${styles.wrapper}`}>
+          <div className="bookingFormContainer">
+            <BookingForm bookingSearchAction={bookingSearchAction} />
+          </div>
+          <div className={styles.heroTitle}>
+            <h1>Rancamaya</h1>
+            <p>
+              Rancamaya menawarkan pengalaman tak terlupakan dengan berbagai pilihan
+              akomodasi terbaik, mulai dari hotel, vila, apartemen, hingga estate
+              eksklusif
+            </p>
+            <p>
+              Nikmati juga fasilitas golf kelas dunia yang siap memenuhi kebutuhan gaya
+              hidup Anda.
+            </p>
+            {/* <div className={styles.heroCTA}>
+              <a href="#" className={styles.button}>
+                PERSONAL INSURANCE <i className="fas fa-arrow-right"></i>
+              </a>
+              <a href="#" className={styles.button}>
+                BUSINESS INSURANCE <i className="fas fa-arrow-right"></i>
+              </a>
+            </div> */}
           </div>
         </div>
       </div>

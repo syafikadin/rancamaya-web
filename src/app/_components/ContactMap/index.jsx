@@ -7,9 +7,8 @@ const Map = dynamic((module) => import("../Map"), { ssr: false });
 
 import "leaflet/dist/leaflet.css";
 import { useEffect, useState } from "react";
-// import Map from "../Map";
 
-const initialCenter = [30.390245794565757, -9.556749533359007];
+const initialCenter = [-6.575412, 106.962551]; // Koordinat kantor Rancamaya
 
 function ContactMap() {
   const [center, setCenter] = useState([...initialCenter]);
@@ -19,7 +18,7 @@ function ContactMap() {
     setIsMounted(true);
   }, []);
 
-  const handleReset = () => setCenter([30.390245794565757, -9.556749533359007]);
+  const handleReset = () => setCenter([-6.575412, 106.962551]);
 
   if (!isMounted) return null;
 

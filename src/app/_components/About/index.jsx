@@ -1,6 +1,7 @@
 import Heading from "@/app/_ui/Heading";
 import styles from "./styles.module.css";
 import Image from "next/image";
+import Link from "next/link";
 
 function About() {
   return (
@@ -11,8 +12,11 @@ function About() {
           <p>
             Suryamas was established on 21 September 1989 and obtained its legal status as
             a private limited company on 31 October 1990 with its main business as real
-            estate developmener in Indonesia.
+            estate developer in Indonesia.
           </p>
+          <Link href="/about">
+            <button className={styles.aboutButton}>Learn More</button>
+          </Link>
         </div>
         <div className={styles.gallery}>
           <div>
