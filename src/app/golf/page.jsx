@@ -1,6 +1,8 @@
 import React from "react";
 import styles from "./styles.module.css";
 import Heading from "../_ui/Heading";
+import Link from "next/link";
+import Image from "next/image";
 
 const Index = () => {
   return (
@@ -9,10 +11,7 @@ const Index = () => {
         <div className={styles.leftPanel}>
           <div className={styles.overlay}>
             <h1 className={styles.title}>Make Your Reservation</h1>
-            <p className={styles.description}>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate
-              laboriosam numquam at
-            </p>
+            <p className={styles.description}></p>
           </div>
         </div>
         <div className={styles.rightPanel}>
@@ -46,9 +45,22 @@ const Index = () => {
             <button className={styles.submitButton} type="submit">
               Check availability
             </button>
+            <div className={styles.whatsappInfo}>
+              <Link href="https://wa.me/622180600681" className={styles.whatsappButton}>
+                <Image
+                  src="/whatsapp.png"
+                  alt="WhatsApp Logo"
+                  className={styles.logo}
+                  width={24}
+                  height={24}
+                />
+                Or contact us via WhatsApp
+              </Link>
+            </div>
           </form>
         </div>
       </div>
+
       <div className={styles.additionalContent}>
         <Heading>Gallery</Heading>
         <div className={styles.gallery}>
