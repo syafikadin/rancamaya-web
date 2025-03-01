@@ -10,8 +10,8 @@ import { redirect } from "next/navigation";
 import ContactSection from "./_components/ContactSection";
 
 export const metadata = {
-  title: "Hotel Booking App",
-  description: "Hotel Booking App built with NextJS",
+  title: "Rancamaya",
+  description: "Hotel | Vila & Apart | Estate",
 };
 
 export default async function Home() {

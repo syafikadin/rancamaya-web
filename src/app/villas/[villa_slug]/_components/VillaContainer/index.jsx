@@ -2,46 +2,45 @@ import styles from "./styles.module.css";
 
 import Heading from "@/app/_ui/Heading";
 import Features from "../Features";
-import RoomSlider from "../RoomSlider";
-import RoomBookingForm from "../RoomBookingForm";
-import RoomDescription from "../RoomDescription";
+import VillaSlider from "../VillaSlider";
+import VillaBookingForm from "../VillaBookingForm";
+import VillaDescription from "../VillaDescription";
 import Facilities from "../Facilities";
 import BookingPolicy from "../BookingPolicy";
-// import { getRoomById, getRoomImages } from "@/app/_lib/supabase/rooms";
+// import { getVillaById, getVillaImages } from "@/app/_lib/supabase/villas";
 import { notFound, redirect } from "next/navigation";
 import { bookingSchema } from "@/app/_lib/zodSchemas";
 import { cookies } from "next/headers";
 
 // const SUPABASE_ROOMS_URL = process.env.NEXT_PUBLIC_SUPABASE_IMGS_URL;
-const room_dummy = {
-  name: "Deluxe Room",
-  description:
-    "Our 39-sqm Deluxe Rooms is designed with your total comfort in mind, and fresh contemporary style to match the mountains scene outside. Enjoy a great night`s sleep with the choice of a twin queen bed or a king size bed. Then relax on your private balcony to watch the mountain breeze, or cozy up inside on a sofa chair for TV time or an online catch up.",
+const villa_dummy = {
+  name: "Deluxe Villa",
+  description: "A beautiful villa with stunning views.",
   price: 150,
   capacity: 2,
   amenities: ["WiFi", "Air Conditioning", "TV", "Mini Bar"],
 };
 
-const room_images_dummy = [
-  { img_path: "deluxe.jpg" },
-  { img_path: "superior.jpg" },
-  { img_path: "grand_suite.jpg" },
+const villa_images_dummy = [
+  { img_path: "one_bedroom.jpg" },
+  { img_path: "two_bedroom.png" },
+  { img_path: "two_bedroom_pool.jpg" },
 ];
 
-async function RoomContainer({ params }) {
-  const room_slug = params?.room_slug;
+async function VillaContainer({ params }) {
+  const villa_slug = params?.villa_slug;
 
-  if (!room_slug || !/^-?\d+$/.test(room_slug)) notFound();
+  if (!villa_slug || !/^-?\d+$/.test(villa_slug)) notFound();
 
-  // const room = await getRoomById(room_slug);
-  const room = room_dummy;
+  // const villa = await getVillaById(villa_slug);
+  const villa = villa_dummy;
 
-  // const room_images = await getRoomImages(room_slug ?? []);
-  const room_images = room_images_dummy;
+  // const villa_images = await getVillaImages(villa_slug ?? []);
+  const villa_images = villa_images_dummy;
 
-  const images = room_images.map((item) => `/${item.img_path}`);
+  const images = villa_images.map((item) => `/${item.img_path}`);
 
-  if (!room) notFound();
+  if (!villa) notFound();
 
   async function bookingAction(prevState, formData) {
     "use server";
@@ -50,7 +49,7 @@ async function RoomContainer({ params }) {
     const start_date = formData.get("start_date");
     const end_date = formData.get("end_date");
     const guests_count = parseInt(formData.get("guests_count"));
-    const room_id = formData.get("room_id");
+    const villa_id = formData.get("villa_id");
 
     // FORM VALIDATION
     let isValid = true;
@@ -71,7 +70,7 @@ async function RoomContainer({ params }) {
       const reservation_cookies = cookies();
       reservation_cookies.set(
         "pending_reservation",
-        JSON.stringify({ start_date, end_date, guests_count, room_id }),
+        JSON.stringify({ start_date, end_date, guests_count, villa_id }),
         {
           maxAge: 60 * 60 * 2,
           httpOnly: true,
@@ -84,15 +83,15 @@ async function RoomContainer({ params }) {
 
   return (
     <>
-      <Heading className={styles.heading}>{room.name}</Heading>
-      <Features room={room} />
-      <RoomSlider images={images} />
-      <RoomBookingForm bookingAction={bookingAction} room={room} />
-      <RoomDescription />
+      <Heading className={styles.heading}>{villa.name}</Heading>
+      <Features villa={villa} />
+      <VillaSlider images={images} />
+      <VillaBookingForm bookingAction={bookingAction} villa={villa} />
+      <VillaDescription />
       <Facilities />
       <BookingPolicy />
     </>
   );
 }
 
-export default RoomContainer;
+export default VillaContainer;
