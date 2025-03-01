@@ -3,7 +3,7 @@
   background-color: #fff;
 }
 
-@media(min-width: 720px) {
+@media (min-width: 720px) {
   .aboutContainer {
     display: flex;
     justify-content: space-between;
@@ -27,7 +27,7 @@
   aspect-ratio: 16/9;
 }
 
-@media(min-width: 720px) {
+@media (min-width: 720px) {
   .gallery {
     width: 55%;
     flex-grow: 1;
@@ -54,4 +54,19 @@
 
 .aboutButton:hover {
   background-color: #326c65;
+}
+
+/* Center "About Us" on mobile */
+@media (max-width: 719px) {
+  .aboutContainer {
+    text-align: center; /* Center the content */
+  }
+  
+  .aboutContainer p {
+    text-align: center; /* Center the paragraph on mobile */
+  }
+  
+  .aboutButton {
+    margin-bottom: 20px; /* Add margin below the button on mobile */
+  }
 }
