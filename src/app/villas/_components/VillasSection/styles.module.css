@@ -1,35 +1,47 @@
+/* Style for the section headings */
+.sectionHeading {
+  font-size: 20px; 
+  margin-bottom: 20px; 
+  margin-top: 20px;
+  letter-spacing: 2px; 
+}
+
+/* Holder Style */
 .villasHolder {
-    padding: 40px;
-    background: linear-gradient(to right, #e0f7fa, #80deea); /* Latar belakang gradasi */
-    border-radius: 15px; /* Sudut yang lebih halus */
-    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2); /* Bayangan untuk efek kedalaman */
-  }
-  
-  .loader {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 40vh;
-  }
-  
+  padding: 40px;
+  background: linear-gradient(to right, #e0f7fa, #80deea); 
+  border-radius: 15px; 
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2); 
+}
+
+/* Loader Style */
+.loader {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 40vh;
+}
+
+/* Grid Style */
+.villasGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+}
+
+/* Villa Item Style */
+.villasGrid .villaItem {
+  border-radius: 10px; 
+  overflow: hidden; 
+  transition: transform 0.3s; 
+}
+
+.villasGrid .villaItem:hover {
+  transform: scale(1.05); 
+}
+
+@media (min-width: 720px) {
   .villasGrid {
-    display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px; /* Jarak antar item yang lebih besar */
   }
-  
-  .villasGrid .villaItem {
-    border-radius: 10px; /* Sudut yang lebih halus untuk item */
-    overflow: hidden; /* Menghindari gambar keluar dari batas */
-    transition: transform 0.3s; /* Efek transisi saat hover */
-  }
-  
-  .villasGrid .villaItem:hover {
-    transform: scale(1.05); /* Efek zoom saat hover */
-  }
-  
-  @media (min-width: 720px) {
-    .villasGrid {
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    }
-  }
+}

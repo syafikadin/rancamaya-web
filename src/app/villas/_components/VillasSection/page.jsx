@@ -88,18 +88,35 @@ async function VillasSection({ filter, range }) {
   }
 
   return (
-    <div className={styles.villasGrid}>
-      {filteredVillas.map((item) => (
-        <VillaItem
-          key={item.id}
-          id={item.id}
-          title={item.name}
-          price={item.price}
-          imgPath={item.thumbnail}
-          description={item.description}
-          link="#"
-        />
-      ))}
+    <div>
+      <h1 className={styles.sectionHeading}>Vila Premium untuk Liburan Anda</h1>
+      <div className={styles.villasGrid}>
+        {filteredVillas.map((item) => (
+          <VillaItem
+            key={item.id}
+            id={item.id}
+            title={item.name}
+            price={item.price}
+            imgPath={item.thumbnail}
+            description={item.description}
+            link="#"
+          />
+        ))}
+      </div>
+      <h1 className={styles.sectionHeading}>Kavling</h1>
+      <div className={styles.villasGrid}>
+        {filteredVillas.map((item) => (
+          <VillaItem
+            key={item.id}
+            id={item.id}
+            title={item.name}
+            price={item.price}
+            imgPath={item.thumbnail}
+            description={item.description}
+            link="#"
+          />
+        ))}
+      </div>
     </div>
   );
 }
