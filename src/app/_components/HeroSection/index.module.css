@@ -1,16 +1,18 @@
 .container {
   position: relative;
-  font-family: 'Roboto', sans-serif;
 }
 
 .overlay {
-  position: relative;
-  z-index: 10;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: auto;
+  min-height: 100%;
   background-color: rgba(0, 0, 0, 0.5);
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
 }
 
 .wrapper {
@@ -18,8 +20,8 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 128px;
-  padding: 24px;
+  gap: 64px;
+  padding: 16px;
   color: white;
 }
 
@@ -29,29 +31,29 @@
 }
 
 .heroTitle h1 {
-  font-size: 4rem;
+  font-size: 3rem;
   font-weight: bold;
-  margin-bottom: 24px;
+  margin-bottom: 16px;
 }
 
 .heroTitle p {
-  font-size: 1.125rem;
-  margin-bottom: 24px;
+  font-size: 1rem;
+  margin-bottom: 16px;
 }
 
 .heroCTA {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 12px;
 }
 
 .button {
   display: block;
   background-color: #3D767D;
   color: white;
-  font-size: 1.125rem;
+  font-size: 1rem;
   font-weight: bold;
-  padding: 16px 24px;
+  padding: 12px 20px;
   border-radius: 8px;
   text-align: center;
   text-decoration: none;
@@ -60,6 +62,21 @@
 
 .button:hover {
   background-color: rgba(61, 118, 125, 0.8);
+}
+
+@media (min-width: 768px) {
+  .wrapper {
+    gap: 96px;
+    padding: 24px;
+  }
+
+  .heroTitle h1 {
+    font-size: 3.5rem;
+  }
+
+  .heroTitle p {
+    font-size: 1.125rem;
+  }
 }
 
 @media (min-width: 1024px) {
@@ -73,7 +90,7 @@
   }
 
   .heroCTA {
-    flex-direction: column;
+    flex-direction: row;
     gap: 24px;
   }
 }
