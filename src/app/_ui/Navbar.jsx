@@ -31,7 +31,7 @@ function Navbar({ signOutAction }) {
                 href="/rooms"
                 onClick={() => setHideMenu(true)}
               >
-                Rooms
+                Hotels
               </Link>
             </li>
             <li>

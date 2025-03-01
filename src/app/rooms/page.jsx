@@ -7,7 +7,7 @@ import { Suspense } from "react";
 import Loader from "../_ui/Loader";
 
 export const metadata = {
-  title: "Rooms",
+  title: "Hotels",
   description: "Discover and book a room at the Hotel Booking App ",
 };
 
