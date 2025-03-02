@@ -7,7 +7,7 @@ import { Suspense } from "react";
 import Loader from "../_ui/Loader";
 
 export const metadata = {
-  title: "Villas",
+  title: "Estate",
   description: "Discover and book a room at the Hotel Booking App ",
 };
 
@@ -16,7 +16,7 @@ function Villas({ searchParams }) {
   const range = searchParams?.range ?? "";
   return (
     <>
-      <BannerVilla title={"VILLA PRIBADI UNTUK LIBURAN SEMPURNA"} />
+      <BannerVilla title={"Temukan Estate Impian Anda – Sewa Mudah & Nyaman!"} />
 
       <div className={`container ${styles.villaHolder}`}>
         <FilterSection filters={{ filter, range }} />
