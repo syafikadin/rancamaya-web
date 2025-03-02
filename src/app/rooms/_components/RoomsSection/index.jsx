@@ -1,10 +1,13 @@
-// import { filterRoomsByDate, getAllRooms } from "@/app/_lib/supabase/rooms";
+"use client";
+
+import { useState, useEffect } from "react";
 import styles from "./styles.module.css";
 import RoomItem from "../RoomItem";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faChevronLeft, faChevronRight } from "@fortawesome/free-solid-svg-icons";
 import { isValid } from "date-fns";
 
 async function RoomsSection({ filter, range }) {
-  // const rooms = await getAllRooms();
   const rooms = [
     {
       id: 1,
@@ -52,9 +55,6 @@ async function RoomsSection({ filter, range }) {
         "Relax in exquisite, contemporary style 34-sqm room featuring two 160 x 200 queen beds, Superior rooms are invitingly cozy. Sip your morning tea or coffee on the balcony, before stepping under the rain shower to get ready for a day in paradise. Come back for an afternoon snooze, or laze in bed and watch a movie. Keeping in touch with friends and family back home is easy with free Wi-Fi, and a comfy bed with the perfect room temperature promises a good night`s sleep, so you`ll wake up feeling totally refreshed",
     },
   ];
-  // console.log({ rooms: rooms.length });
-
-  // let filteredRooms = await filterRoomsByDate();
 
   let filteredRooms = rooms;
 
@@ -66,14 +66,13 @@ async function RoomsSection({ filter, range }) {
     const arrivalDate = range.split("_")?.at(0);
     const departureDate = range.split("_")?.at(1);
     filteredRooms = rooms.filter((room) => {
-      // Ensure availableDates is defined and is an array before using .some()
       if (Array.isArray(room.availableDates)) {
         return room.availableDates.some((date) => {
           const roomDate = new Date(date);
           return roomDate >= arrivalDate && roomDate <= departureDate;
         });
       }
-      return false; // If availableDates is not defined or not an array, return false
+      return false;
     });
   }
 
@@ -84,11 +83,9 @@ async function RoomsSection({ filter, range }) {
     case "low-price":
       filteredRooms = filteredRooms.sort((a, b) => a.price - b.price);
       break;
-
     case "min-guests":
       filteredRooms = filteredRooms.sort((a, b) => b.capacity - a.capacity);
       break;
-
     case "max-guests":
       filteredRooms = filteredRooms.sort((a, b) => a.capacity - b.capacity);
       break;
@@ -96,19 +93,71 @@ async function RoomsSection({ filter, range }) {
       filteredRooms = filteredRooms;
   }
 
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [cardsToShow, setCardsToShow] = useState(3);
+
+  useEffect(() => {
+    const updateCardsToShow = () => {
+      if (window.innerWidth < 768) {
+        setCardsToShow(1);
+      } else {
+        setCardsToShow(3);
+      }
+    };
+
+    updateCardsToShow();
+    window.addEventListener("resize", updateCardsToShow);
+
+    return () => {
+      window.removeEventListener("resize", updateCardsToShow);
+    };
+  }, []);
+
+  const handlePrev = () => {
+    setCurrentIndex((prevIndex) => (prevIndex === 0 ? 0 : prevIndex - cardsToShow));
+  };
+
+  const handleNext = () => {
+    setCurrentIndex((prevIndex) =>
+      prevIndex + cardsToShow >= filteredRooms.length
+        ? prevIndex
+        : prevIndex + cardsToShow
+    );
+  };
+
   return (
-    <div className={styles.roomsGrid}>
-      {filteredRooms.map((item) => (
-        <RoomItem
-          key={item.id}
-          id={item.id}
-          title={item.name}
-          price={item.price}
-          imgPath={item.thumbnail}
-          description={item.description}
-          link="#"
-        />
-      ))}
+    <div className={styles.carousel}>
+      <button
+        onClick={handlePrev}
+        className={`${styles.navButton} ${styles.left} ${
+          currentIndex === 0 ? styles.disabled : ""
+        }`}
+        disabled={currentIndex === 0}
+      >
+        <FontAwesomeIcon icon={faChevronLeft} />
+      </button>
+      <div className={styles.roomsGrid}>
+        {filteredRooms.slice(currentIndex, currentIndex + cardsToShow).map((item) => (
+          <RoomItem
+            key={item.id}
+            id={item.id}
+            title={item.name}
+            price={item.price}
+            imgPath={item.thumbnail}
+            description={item.description}
+            link="#"
+          />
+        ))}
+      </div>
+      <button
+        onClick={handleNext}
+        className={`${styles.navButton} ${styles.right} ${
+          currentIndex + cardsToShow >= filteredRooms.length ? styles.disabled : ""
+        }`}
+        disabled={currentIndex + cardsToShow >= filteredRooms.length}
+      >
+        <FontAwesomeIcon icon={faChevronRight} />
+      </button>
     </div>
   );
 }
