@@ -2,7 +2,6 @@
 import Footer from "./_components/Footer";
 import Navbar from "./_ui/Navbar";
 import styles from "./styles.css";
-import 'bootstrap/dist/css/bootstrap.min.css';
 
 import { Roboto } from "next/font/google";
 import { signOutAction } from "./_lib/actions";
