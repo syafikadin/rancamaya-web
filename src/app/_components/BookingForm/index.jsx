@@ -3,17 +3,20 @@ import "react-datepicker/dist/react-datepicker.css";
 import DatePicker from "react-datepicker";
 import BookingButton from "../BookingButton";
 import styles from "./index.module.css";
-import { useState } from "react";
-
+import { useState, useRef } from "react";
 import { addDays, formatISO, isBefore, format } from "date-fns";
 import toast, { Toaster } from "react-hot-toast";
 
 function BookingForm({ bookingSearchAction, children }) {
-  const defaultDate = new Date(2025, 1, 25);
+  const defaultDate = new Date();
   const [startDate, setStartDate] = useState(defaultDate);
   const [endDate, setEndDate] = useState(addDays(defaultDate, 1));
   const [adults, setAdults] = useState(2);
   const [rooms, setRooms] = useState(1);
+
+  // Refs untuk DatePicker
+  const startDateRef = useRef(null);
+  const endDateRef = useRef(null);
 
   function handleStartSelection(date) {
     setStartDate(date);
@@ -40,15 +43,16 @@ function BookingForm({ bookingSearchAction, children }) {
     return new Intl.DateTimeFormat("id-ID", { weekday: "long" }).format(date);
   }
 
-  function formatDate(date) {
-    return format(date, "d MMM yyyy");
-  }
-
   return (
     <form action={handleSearch} className={styles.bookingForm}>
       <div className={styles.formGroup}>
-        <div className={styles.formControl}>
+        {/* Start Date Picker */}
+        <div
+          className={styles.formControl}
+          onClick={() => startDateRef.current.setOpen(true)}
+        >
           <DatePicker
+            ref={startDateRef}
             showIcon
             selected={startDate}
             onChange={handleStartSelection}
@@ -57,13 +61,18 @@ function BookingForm({ bookingSearchAction, children }) {
             endDate={endDate}
             className={styles.input}
             dateFormat={"dd/MM/yyyy"}
-            excludeDateIntervals={[{ start: new Date("01/01/1970"), end: new Date() }]}
+            minDate={new Date()}
           />
-          {/* <div className={styles.dateDisplay}>{formatDate(startDate)}</div> */}
           <div className={styles.dayDisplay}>{formatDay(startDate)}</div>
         </div>
-        <div className={styles.formControl}>
+
+        {/* End Date Picker */}
+        <div
+          className={styles.formControl}
+          onClick={() => endDateRef.current.setOpen(true)}
+        >
           <DatePicker
+            ref={endDateRef}
             showIcon
             selected={endDate}
             onChange={handleEndSelection}
@@ -73,14 +82,14 @@ function BookingForm({ bookingSearchAction, children }) {
             minDate={startDate}
             className={styles.input}
             dateFormat={"dd/MM/yyyy"}
-            excludeDateIntervals={[{ start: new Date("01/01/1970"), end: new Date() }]}
           />
-          {/* <div className={styles.dateDisplay}>{formatDate(endDate)}</div> */}
           <div className={styles.dayDisplay}>{formatDay(endDate)}</div>
         </div>
+
+        {/* Adults & Rooms Selection */}
         <div className={styles.formControl}>
           <i className="fas fa-user-friends"></i>
-          <div>
+          <div className={styles.selectForm}>
             <select
               value={adults}
               onChange={(e) => setAdults(e.target.value)}
@@ -106,6 +115,7 @@ function BookingForm({ bookingSearchAction, children }) {
           </div>
         </div>
       </div>
+
       <div className={styles.actions}>
         <BookingButton />
         <div>{children}</div>

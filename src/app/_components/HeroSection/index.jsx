@@ -25,14 +25,6 @@ function HeroSection({ bookingSearchAction }) {
               Nikmati juga fasilitas golf kelas dunia yang siap memenuhi kebutuhan gaya
               hidup Anda.
             </p>
-            {/* <div className={styles.heroCTA}>
-              <a href="#" className={styles.button}>
-                PERSONAL INSURANCE <i className="fas fa-arrow-right"></i>
-              </a>
-              <a href="#" className={styles.button}>
-                BUSINESS INSURANCE <i className="fas fa-arrow-right"></i>
-              </a>
-            </div> */}
           </div>
         </div>
       </div>
