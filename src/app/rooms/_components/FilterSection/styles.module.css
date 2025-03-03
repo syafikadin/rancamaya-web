@@ -4,8 +4,10 @@
   justify-content: space-between;
   padding: 20px 0px;
   gap: 12px;
+  position: relative; /* Ensure it can be layered above the banner */
+  z-index: 10; /* Make sure it's above other content like the banner */
+  background-color: rgba(255, 255, 255, 0.8); /* Optional: Add a background with transparency */
 }
-
 
 .select {
   width: 100%;
@@ -15,7 +17,6 @@
   .select {
     max-width: 320px;
   }
-  
 }
 
 .input {
@@ -28,7 +29,6 @@
   font-size: 17px;
   color: #333333;
 }
-
 
 .datesContainer {
   display: flex;
@@ -53,7 +53,6 @@
 .formControl label {
   font-weight: 600;
 }
-
 
 .searchButton {
   padding: 8px 12px;

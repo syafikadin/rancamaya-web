@@ -1,8 +1,7 @@
-
 .roomsHolder {
   padding: 20px;
+  position: relative; 
 }
-
 
 .loader {
   display: flex;
@@ -10,4 +9,3 @@
   justify-content: center;
   height: 40vh;
 }
-
