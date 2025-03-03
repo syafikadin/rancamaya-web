@@ -8,6 +8,7 @@ import { faChevronLeft, faChevronRight } from "@fortawesome/free-solid-svg-icons
 import { isValid } from "date-fns";
 import BallroomItem from "../BallroomItem";
 import Facility from "../Facility";
+import Restaurant from "../RestaurantSection";
 
 async function RoomsSection({ filter, range }) {
   const rooms = [
@@ -209,85 +210,96 @@ async function RoomsSection({ filter, range }) {
 
   return (
     <div>
-      <h1 className={styles.sectionHeading}>Liburan Impian Anda Dimulai di Sini</h1>
-      <div className={styles.carousel}>
-        <button
-          onClick={handlePrevRooms}
-          className={`${styles.navButton} ${styles.left} ${
-            currentIndexRooms === 0 ? styles.disabled : ""
-          }`}
-          disabled={currentIndexRooms === 0}
-        >
-          <FontAwesomeIcon icon={faChevronLeft} />
-        </button>
-        <div className={styles.roomsGrid}>
-          {filteredRooms
-            .slice(currentIndexRooms, currentIndexRooms + cardsToShow)
-            .map((item) => (
-              <RoomItem
-                key={item.id}
-                id={item.id}
-                title={item.name}
-                price={item.price}
-                imgPath={item.thumbnail}
-                description={item.description}
-                link="#"
-              />
-            ))}
+      {/* Hotel Room */}
+      <div>
+        <h1 className={styles.sectionHeading}>Liburan Impian Anda Dimulai di Sini</h1>
+        <div className={styles.carousel}>
+          <button
+            onClick={handlePrevRooms}
+            className={`${styles.navButton} ${styles.left} ${
+              currentIndexRooms === 0 ? styles.disabled : ""
+            }`}
+            disabled={currentIndexRooms === 0}
+          >
+            <FontAwesomeIcon icon={faChevronLeft} />
+          </button>
+          <div className={styles.roomsGrid}>
+            {filteredRooms
+              .slice(currentIndexRooms, currentIndexRooms + cardsToShow)
+              .map((item) => (
+                <RoomItem
+                  key={item.id}
+                  id={item.id}
+                  title={item.name}
+                  price={item.price}
+                  imgPath={item.thumbnail}
+                  description={item.description}
+                  link="#"
+                />
+              ))}
+          </div>
+          <button
+            onClick={handleNextRooms}
+            className={`${styles.navButton} ${styles.right} ${
+              currentIndexRooms + cardsToShow >= filteredRooms.length
+                ? styles.disabled
+                : ""
+            }`}
+            disabled={currentIndexRooms + cardsToShow >= filteredRooms.length}
+          >
+            <FontAwesomeIcon icon={faChevronRight} />
+          </button>
         </div>
-        <button
-          onClick={handleNextRooms}
-          className={`${styles.navButton} ${styles.right} ${
-            currentIndexRooms + cardsToShow >= filteredRooms.length ? styles.disabled : ""
-          }`}
-          disabled={currentIndexRooms + cardsToShow >= filteredRooms.length}
-        >
-          <FontAwesomeIcon icon={faChevronRight} />
-        </button>
       </div>
 
       <Facility />
 
-      <h1 className={styles.sectionHeading}>
-        Ballroom Eksklusif untuk Momen Tak Terlupakan
-      </h1>
-      <div className={styles.carousel}>
-        <button
-          onClick={handlePrevBallrooms}
-          className={`${styles.navButton} ${styles.left} ${
-            currentIndexBallrooms === 0 ? styles.disabled : ""
-          }`}
-          disabled={currentIndexBallrooms === 0}
-        >
-          <FontAwesomeIcon icon={faChevronLeft} />
-        </button>
-        <div className={styles.roomsGrid}>
-          {filteredBallrooms
-            .slice(currentIndexBallrooms, currentIndexBallrooms + cardsToShow)
-            .map((item) => (
-              <BallroomItem
-                key={item.id}
-                id={item.id}
-                title={item.name}
-                price={item.price}
-                capacity={item.capacity}
-                imgPath={item.thumbnail}
-                description={item.description}
-                link="#"
-              />
-            ))}
+      {/* Restaurant */}
+      <Restaurant />
+
+      {/* Ballroom */}
+      <div>
+        <h1 className={styles.sectionHeading}>
+          Ballroom Eksklusif untuk Momen Tak Terlupakan
+        </h1>
+        <div className={styles.carousel}>
+          <button
+            onClick={handlePrevBallrooms}
+            className={`${styles.navButton} ${styles.left} ${
+              currentIndexBallrooms === 0 ? styles.disabled : ""
+            }`}
+            disabled={currentIndexBallrooms === 0}
+          >
+            <FontAwesomeIcon icon={faChevronLeft} />
+          </button>
+          <div className={styles.roomsGrid}>
+            {filteredBallrooms
+              .slice(currentIndexBallrooms, currentIndexBallrooms + cardsToShow)
+              .map((item) => (
+                <BallroomItem
+                  key={item.id}
+                  id={item.id}
+                  title={item.name}
+                  price={item.price}
+                  capacity={item.capacity}
+                  imgPath={item.thumbnail}
+                  description={item.description}
+                  link="#"
+                />
+              ))}
+          </div>
+          <button
+            onClick={handleNextBallrooms}
+            className={`${styles.navButton} ${styles.right} ${
+              currentIndexBallrooms + cardsToShow >= filteredRooms.length
+                ? styles.disabled
+                : ""
+            }`}
+            disabled={currentIndexBallrooms + cardsToShow >= filteredRooms.length}
+          >
+            <FontAwesomeIcon icon={faChevronRight} />
+          </button>
         </div>
-        <button
-          onClick={handleNextBallrooms}
-          className={`${styles.navButton} ${styles.right} ${
-            currentIndexBallrooms + cardsToShow >= filteredRooms.length
-              ? styles.disabled
-              : ""
-          }`}
-          disabled={currentIndexBallrooms + cardsToShow >= filteredRooms.length}
-        >
-          <FontAwesomeIcon icon={faChevronRight} />
-        </button>
       </div>
     </div>
   );

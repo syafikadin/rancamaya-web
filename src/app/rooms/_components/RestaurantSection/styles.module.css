@@ -1,0 +1,68 @@
+.roomsGrid {
+    display: grid;
+    gap: 20px;
+    grid-template-columns: repeat(1, 1fr);
+    position: relative;
+    z-index: 1;
+  }
+  
+  .sectionHeading {
+    font-size: 20px; 
+    margin-bottom: 20px;
+    margin-top: 20px;
+  }
+  
+  .carousel {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .navButton {
+    background-color: #333;
+    color: #fff;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    transition: background-color 0.3s ease;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 2;
+  }
+  
+  .navButton:hover {
+    background-color: #555;
+  }
+  
+  .navButton:disabled,
+  .navButton.disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+  }
+  
+  .navButton svg {
+    font-size: 20px;
+  }
+  
+  .navButton.left {
+    left: -20px;
+  }
+  
+  .navButton.right {
+    right: -20px;
+  }
+  
+  @media (min-width: 768px) {
+    .roomsGrid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
