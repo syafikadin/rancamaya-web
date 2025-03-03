@@ -21,9 +21,14 @@ const options = [
 ];
 
 function FilterSection({ filters }) {
-  const range = { from: filters?.range.split("_")?.at(0), to: filters?.range.split("_")?.at(1) };
+  const range = {
+    from: filters?.range.split("_")?.at(0),
+    to: filters?.range.split("_")?.at(1),
+  };
   const [startDate, setStartDate] = useState(
-    filters?.range && isValid(new Date(range.from)) ? formatRFC7231(new Date(range.from)) : ""
+    filters?.range && isValid(new Date(range.from))
+      ? formatRFC7231(new Date(range.from))
+      : ""
   );
   const [endDate, setEndDate] = useState(
     filters?.range && isValid(new Date(range.to)) ? formatRFC7231(new Date(range.to)) : ""
@@ -77,11 +82,13 @@ function FilterSection({ filters }) {
           options={options}
           isSearchable={false}
           className={styles.select}
-          defaultValue={options.find((item) => item.value === filters?.filter) ?? options.at(0)}
+          defaultValue={
+            options.find((item) => item.value === filters?.filter) ?? options.at(0)
+          }
         />
       </div>
 
-      <div className={styles.formControl}>
+      {/* <div className={styles.formControl}>
         <label>Filter By Date</label>
         <div className={styles.datesContainer}>
           <DatePicker
@@ -117,7 +124,7 @@ function FilterSection({ filters }) {
             <span>Search</span>
           </button>
         </div>
-      </div>
+      </div> */}
       <Toaster position="top-center" reverseOrder={false} />
     </form>
   );
