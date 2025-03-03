@@ -112,10 +112,10 @@ async function VillasSection({ filter, range }) {
   const kavlings = [
     {
       id: 1,
-      name: "Kavling Deluxe",
+      name: "Kavling Jasmine",
       price: 300000,
       capacity: 4,
-      thumbnail: "kavling_kertanegara_drone.jpg",
+      thumbnail: "kavling_jasmine.jpg",
       description:
         "Perfect for privacy and relaxation, families or couples, this one-bedroom villa offers 95-sqm of tastefully decorated living space where the traditional and the contemporary seamlessly blend with quality teak furniture, marble flooring, 42 inc flat screen TV and complimentary internet. Luxurious interiors naturally flow to lush gardens and a private patio overlooking the beautifully manicured fairways.",
     },
@@ -139,26 +139,18 @@ async function VillasSection({ filter, range }) {
     },
     {
       id: 4,
-      name: "Kavling Sakura",
+      name: "Kavling Salvador",
       price: 400000,
       capacity: 5,
-      thumbnail: "two_bedroom_jacuzzi.jpeg",
+      thumbnail: "kavling_salvador.jpg",
       description:
         "Our two bedrooms villa measuring 124-sqm offer ample space to relax and recharge your body. Indulge in the outdoor Jacuzzi, or simply drift off to sleep in a sumptuous king-size bed. Our Jacuzzi villa is the prefect getaway for couples and provide the ideal setting for an idyllic break.",
-    },
-    {
-      id: 5,
-      name: "Kavling Superior",
-      price: 600000,
-      capacity: 8,
-      thumbnail: "superior_queen.jpg",
-      description:
-        "Experience the unrivalled majesty of the triplex-style in a 125-sqm Lagoon Family Suite, an oasis of sophistication blending stylish design for an unforgettable stay. The dramatic living room opens on to a large terrace with direct access to an infinity pool and expansive views of nearby Mt. Salak and of the beautifully manicured golf course",
     },
   ];
 
   let filteredVillas = villas;
   let filteredRentHouse = rentHouse;
+  let filteredKavlings = kavlings;
 
   if (
     range &&
