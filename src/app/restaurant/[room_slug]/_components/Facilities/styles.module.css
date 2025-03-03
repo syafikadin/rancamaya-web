@@ -1,0 +1,47 @@
+.container{
+  margin-bottom: 50px;
+}
+
+.facilitiesTable {
+  margin: auto;
+  color: #181b20;
+  border-collapse: collapse;
+  width: 100%;
+  max-width: 800px;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.facilitiesTable thead {
+  background-color: #386c64;
+  color: #ffffff;
+  font-size: 18px;
+}
+
+.facilitiesTable th, .facilitiesTable td {
+  padding: 14px 20px;
+  text-align: left;
+}
+
+.facilitiesTable tr:nth-child(even) {
+  background-color: #f8f8f8;
+}
+
+.facilitiesTable td {
+  font-size: 16px;
+}
+
+.facilitiesTable td:not(:last-of-type),
+.facilitiesTable th:not(:last-of-type) {
+  border-right: 1px solid #ffffff;
+}
+
+.facilitiesTable tr:not(:last-of-type) {
+  border-bottom: 1px solid #386c64;
+}
+
+.facilitiyIcon {
+  color: #386c64;
+  margin-right: 10px;
+  font-size: 18px;
+}

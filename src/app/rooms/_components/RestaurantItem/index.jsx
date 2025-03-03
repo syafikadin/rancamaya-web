@@ -6,7 +6,7 @@ import { FaClock } from "react-icons/fa";
 function RoomItem({ id, imgPath, price, title, description, rating }) {
   return (
     <div className={styles.roomItem}>
-      <Link href={`rooms/${id}`}>
+      <Link href={`restaurant/${id}`}>
         <div className={styles.imgOverlay}>
           <Image fill src={`/${imgPath}`} alt={title} className={styles.image} />
         </div>
