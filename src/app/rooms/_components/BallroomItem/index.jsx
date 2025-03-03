@@ -8,7 +8,7 @@ import { FaUser } from "react-icons/fa";
 function BallroomItem({ id, imgPath, price, title, description, capacity }) {
   return (
     <div className={styles.roomItem}>
-      <Link href={`rooms/${id}`}>
+      <Link href={`ballroom/${id}`}>
         <div className={styles.imgOverlay}>
           <Image fill src={`/${imgPath}`} alt={title} className={styles.image} />
         </div>
