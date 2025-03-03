@@ -203,7 +203,7 @@ async function VillasSection({ filter, range }) {
           />
         ))}
       </div>
-      <h1 className={styles.sectionHeading}>Pilih Rumah Sesuai Keinginan</h1>
+      <h1 className={styles.sectionHeading}>Sewa Rumah Sesuai Keinginan</h1>
       <div className={styles.villasGrid}>
         {rentHouse.map((item) => (
           <RentHouseItem

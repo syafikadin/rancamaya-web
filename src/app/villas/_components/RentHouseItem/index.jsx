@@ -15,7 +15,7 @@ function VillaItem({
 }) {
   return (
     <div className={styles.villaItem}>
-      <Link href={`villas/${id}`}>
+      <Link href={`renthouse/${id}`}>
         <div className={styles.imgOverlay}>
           <Image fill src={`/${imgPath}`} alt={title} className={styles.image} />
         </div>
