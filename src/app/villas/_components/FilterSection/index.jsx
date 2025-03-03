@@ -88,7 +88,7 @@ function FilterSection({ filters }) {
         />
       </div>
 
-      <div className={styles.formControl}>
+      {/* <div className={styles.formControl}>
         <label>Filter By Date</label>
         <div className={styles.datesContainer}>
           <DatePicker
@@ -124,7 +124,7 @@ function FilterSection({ filters }) {
             <span>Search</span>
           </button>
         </div>
-      </div>
+      </div> */}
       <Toaster position="top-center" reverseOrder={false} />
     </form>
   );
