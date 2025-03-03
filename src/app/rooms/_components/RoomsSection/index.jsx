@@ -6,6 +6,7 @@ import RoomItem from "../RoomItem";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronLeft, faChevronRight } from "@fortawesome/free-solid-svg-icons";
 import { isValid } from "date-fns";
+import BallroomItem from "../BallroomItem";
 
 async function RoomsSection({ filter, range }) {
   const rooms = [
@@ -55,8 +56,74 @@ async function RoomsSection({ filter, range }) {
         "Relax in exquisite, contemporary style 34-sqm room featuring two 160 x 200 queen beds, Superior rooms are invitingly cozy. Sip your morning tea or coffee on the balcony, before stepping under the rain shower to get ready for a day in paradise. Come back for an afternoon snooze, or laze in bed and watch a movie. Keeping in touch with friends and family back home is easy with free Wi-Fi, and a comfy bed with the perfect room temperature promises a good night`s sleep, so you`ll wake up feeling totally refreshed",
     },
   ];
+  const ballrooms = [
+    {
+      id: 1,
+      name: "Banyan Ballroom",
+      price: 200000,
+      capacity: 350,
+      thumbnail: "banyan_ballroom.jpg",
+      description:
+        "The Banyan Ballroom is a beautifully designed contemporary venue offering the latest in style and sophistication.",
+    },
+    {
+      id: 2,
+      name: "Palm Rooms",
+      price: 150000,
+      capacity: 110,
+      thumbnail: "pal_rooms.jpg",
+      description:
+        "The two Palm Rooms offer a combined 112 sqm stylish setting for corporate meeting and events accomodating 36 to 110 people",
+    },
+    {
+      id: 3,
+      name: "Pine Board Rooms",
+      price: 300000,
+      capacity: 18,
+      thumbnail: "pine_board_rooms.jpg",
+      description:
+        "The Pine Board Rooms each offer a perfect 56sqm setting for high-level business meeting accommodating up to 18 people in board meetings.",
+    },
+    {
+      id: 4,
+      name: "Maple Rooms",
+      price: 500000,
+      capacity: 40,
+      thumbnail: "maple_rooms.jpg",
+      description:
+        "The three Maple Rooms are located at the Rancamaya Golf and Country Club. With subtle decor and furnishing, the Maple Rooms offer an elegant setting for both corporate and private events.",
+    },
+    {
+      id: 5,
+      name: "Diamond Room",
+      price: 800000,
+      capacity: 300,
+      thumbnail: "diamond_room.jpg",
+      description:
+        "The Diamond Room is located on the first floor of the hotel and offers the perfect green environment for receptions, intimate private party and business meetings to weddings and major MICE events.",
+    },
+    {
+      id: 6,
+      name: "Acacia Rooms",
+      price: 800000,
+      capacity: 50,
+      thumbnail: "acacia_rooms.jpg",
+      description:
+        "The Acacia Meeting Room is located on the Lower Ground and adjacent to the Courtyard Garden Restaurant.",
+    },
+    {
+      id: 7,
+      name: "Mahogany Rooms",
+      price: 800000,
+      capacity: 120,
+      thumbnail: "mahogany_room.jpg",
+      description:
+        "Leading on from Rancamaya Golf and Country Club, The Mahogany Room doubles up as an elegant boardroom or private dining room, ideal for corporate meetings or small lunch and dinner parties.",
+    },
+  ];
 
   let filteredRooms = rooms;
+  let filteredBallrooms = ballrooms;
 
   if (
     range &&
@@ -79,21 +146,27 @@ async function RoomsSection({ filter, range }) {
   switch (filter) {
     case "high-price":
       filteredRooms = filteredRooms.sort((a, b) => b.price - a.price);
+      filteredBallrooms = filteredBallrooms.sort((a, b) => b.price - a.price);
       break;
     case "low-price":
       filteredRooms = filteredRooms.sort((a, b) => a.price - b.price);
+      filteredBallrooms = filteredBallrooms.sort((a, b) => a.price - b.price);
       break;
     case "min-guests":
       filteredRooms = filteredRooms.sort((a, b) => b.capacity - a.capacity);
+      filteredBallrooms = filteredBallrooms.sort((a, b) => b.capacity - a.capacity);
       break;
     case "max-guests":
       filteredRooms = filteredRooms.sort((a, b) => a.capacity - b.capacity);
+      filteredBallrooms = filteredBallrooms.sort((a, b) => a.capacity - b.capacity);
       break;
     default:
       filteredRooms = filteredRooms;
+      filteredBallrooms = filteredBallrooms;
   }
 
-  const [currentIndex, setCurrentIndex] = useState(0);
+  const [currentIndexRooms, setCurrentIndexRooms] = useState(0);
+  const [currentIndexBallrooms, setCurrentIndexBallrooms] = useState(0);
   const [cardsToShow, setCardsToShow] = useState(3);
 
   useEffect(() => {
@@ -113,51 +186,105 @@ async function RoomsSection({ filter, range }) {
     };
   }, []);
 
-  const handlePrev = () => {
-    setCurrentIndex((prevIndex) => (prevIndex === 0 ? 0 : prevIndex - cardsToShow));
+  const handlePrevRooms = () => {
+    setCurrentIndexRooms((prev) => Math.max(prev - cardsToShow, 0));
   };
 
-  const handleNext = () => {
-    setCurrentIndex((prevIndex) =>
-      prevIndex + cardsToShow >= filteredRooms.length
-        ? prevIndex
-        : prevIndex + cardsToShow
+  const handleNextRooms = () => {
+    setCurrentIndexRooms((prev) =>
+      prev + cardsToShow < filteredRooms.length ? prev + cardsToShow : prev
+    );
+  };
+
+  const handlePrevBallrooms = () => {
+    setCurrentIndexBallrooms((prev) => Math.max(prev - cardsToShow, 0));
+  };
+
+  const handleNextBallrooms = () => {
+    setCurrentIndexBallrooms((prev) =>
+      prev + cardsToShow < filteredBallrooms.length ? prev + cardsToShow : prev
     );
   };
 
   return (
-    <div className={styles.carousel}>
-      <button
-        onClick={handlePrev}
-        className={`${styles.navButton} ${styles.left} ${
-          currentIndex === 0 ? styles.disabled : ""
-        }`}
-        disabled={currentIndex === 0}
-      >
-        <FontAwesomeIcon icon={faChevronLeft} />
-      </button>
-      <div className={styles.roomsGrid}>
-        {filteredRooms.slice(currentIndex, currentIndex + cardsToShow).map((item) => (
-          <RoomItem
-            key={item.id}
-            id={item.id}
-            title={item.name}
-            price={item.price}
-            imgPath={item.thumbnail}
-            description={item.description}
-            link="#"
-          />
-        ))}
+    <div>
+      <h1 className={styles.sectionHeading}>Liburan Impian Anda Dimulai di Sini</h1>
+      <div className={styles.carousel}>
+        <button
+          onClick={handlePrevRooms}
+          className={`${styles.navButton} ${styles.left} ${
+            currentIndexRooms === 0 ? styles.disabled : ""
+          }`}
+          disabled={currentIndexRooms === 0}
+        >
+          <FontAwesomeIcon icon={faChevronLeft} />
+        </button>
+        <div className={styles.roomsGrid}>
+          {filteredRooms
+            .slice(currentIndexRooms, currentIndexRooms + cardsToShow)
+            .map((item) => (
+              <RoomItem
+                key={item.id}
+                id={item.id}
+                title={item.name}
+                price={item.price}
+                imgPath={item.thumbnail}
+                description={item.description}
+                link="#"
+              />
+            ))}
+        </div>
+        <button
+          onClick={handleNextRooms}
+          className={`${styles.navButton} ${styles.right} ${
+            currentIndexRooms + cardsToShow >= filteredRooms.length ? styles.disabled : ""
+          }`}
+          disabled={currentIndexRooms + cardsToShow >= filteredRooms.length}
+        >
+          <FontAwesomeIcon icon={faChevronRight} />
+        </button>
       </div>
-      <button
-        onClick={handleNext}
-        className={`${styles.navButton} ${styles.right} ${
-          currentIndex + cardsToShow >= filteredRooms.length ? styles.disabled : ""
-        }`}
-        disabled={currentIndex + cardsToShow >= filteredRooms.length}
-      >
-        <FontAwesomeIcon icon={faChevronRight} />
-      </button>
+      <h1 className={styles.sectionHeading}>
+        Ballroom Eksklusif untuk Momen Tak Terlupakan
+      </h1>
+      <div className={styles.carousel}>
+        <button
+          onClick={handlePrevBallrooms}
+          className={`${styles.navButton} ${styles.left} ${
+            currentIndexBallrooms === 0 ? styles.disabled : ""
+          }`}
+          disabled={currentIndexBallrooms === 0}
+        >
+          <FontAwesomeIcon icon={faChevronLeft} />
+        </button>
+        <div className={styles.roomsGrid}>
+          {filteredBallrooms
+            .slice(currentIndexBallrooms, currentIndexBallrooms + cardsToShow)
+            .map((item) => (
+              <BallroomItem
+                key={item.id}
+                id={item.id}
+                title={item.name}
+                price={item.price}
+                capacity={item.capacity}
+                imgPath={item.thumbnail}
+                description={item.description}
+                link="#"
+              />
+            ))}
+        </div>
+        <button
+          onClick={handleNextBallrooms}
+          className={`${styles.navButton} ${styles.right} ${
+            currentIndexBallrooms + cardsToShow >= filteredRooms.length
+              ? styles.disabled
+              : ""
+          }`}
+          disabled={currentIndexBallrooms + cardsToShow >= filteredRooms.length}
+        >
+          <FontAwesomeIcon icon={faChevronRight} />
+        </button>
+      </div>
     </div>
   );
 }

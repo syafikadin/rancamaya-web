@@ -74,7 +74,7 @@ function FilterSection({ filters }) {
   return (
     <form className={`${styles.filterSection} roomsForm`}>
       <div className={styles.formControl}>
-        <label htmlFor="">Sort Rooms</label>
+        <label htmlFor="">Sort Price</label>
         <Select
           onChange={(e) => {
             handleSort(e);
