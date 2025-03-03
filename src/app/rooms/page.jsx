@@ -22,14 +22,14 @@ function Rooms({ searchParams }) {
         <FilterSection filters={{ filter, range }} />
 
         <Suspense
-          key={`${filter}-${range}`}
+          key={filter}
           fallback={
             <div className={styles.loader}>
               <Loader />
             </div>
           }
         >
-          <RoomsSection filter={filter} range={range} />
+          <RoomsSection filter={filter} />
         </Suspense>
       </div>
     </>

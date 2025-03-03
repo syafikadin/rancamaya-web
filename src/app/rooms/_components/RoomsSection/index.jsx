@@ -5,12 +5,11 @@ import styles from "./styles.module.css";
 import RoomItem from "../RoomItem";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronLeft, faChevronRight } from "@fortawesome/free-solid-svg-icons";
-import { isValid } from "date-fns";
 import BallroomItem from "../BallroomItem";
 import Facility from "../Facility";
 import Restaurant from "../RestaurantSection";
 
-async function RoomsSection({ filter, range }) {
+async function RoomsSection({ filter }) {
   const rooms = [
     {
       id: 1,
@@ -126,24 +125,6 @@ async function RoomsSection({ filter, range }) {
 
   let filteredRooms = rooms;
   let filteredBallrooms = ballrooms;
-
-  if (
-    range &&
-    isValid(new Date(range.split("_")?.at(0))) &&
-    isValid(new Date(range.split("_")?.at(1)))
-  ) {
-    const arrivalDate = range.split("_")?.at(0);
-    const departureDate = range.split("_")?.at(1);
-    filteredRooms = rooms.filter((room) => {
-      if (Array.isArray(room.availableDates)) {
-        return room.availableDates.some((date) => {
-          const roomDate = new Date(date);
-          return roomDate >= arrivalDate && roomDate <= departureDate;
-        });
-      }
-      return false;
-    });
-  }
 
   switch (filter) {
     case "high-price":
