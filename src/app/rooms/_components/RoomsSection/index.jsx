@@ -7,6 +7,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronLeft, faChevronRight } from "@fortawesome/free-solid-svg-icons";
 import { isValid } from "date-fns";
 import BallroomItem from "../BallroomItem";
+import Facility from "../Facility";
 
 async function RoomsSection({ filter, range }) {
   const rooms = [
@@ -244,6 +245,9 @@ async function RoomsSection({ filter, range }) {
           <FontAwesomeIcon icon={faChevronRight} />
         </button>
       </div>
+
+      <Facility />
+
       <h1 className={styles.sectionHeading}>
         Ballroom Eksklusif untuk Momen Tak Terlupakan
       </h1>
