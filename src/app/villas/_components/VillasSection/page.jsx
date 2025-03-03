@@ -1,6 +1,7 @@
 import styles from "./styles.module.css";
 import VillaItem from "../VillaItem";
 import RentHouseItem from "../RentHouseItem";
+import KavlingItem from "../KavlingItem";
 
 async function VillasSection({ filter, range }) {
   const villas = [
@@ -113,8 +114,8 @@ async function VillasSection({ filter, range }) {
     {
       id: 1,
       name: "Kavling Jasmine",
-      price: 300000,
-      capacity: 4,
+      price: 3000000,
+      size: 472,
       thumbnail: "kavling_jasmine.jpg",
       description:
         "Perfect for privacy and relaxation, families or couples, this one-bedroom villa offers 95-sqm of tastefully decorated living space where the traditional and the contemporary seamlessly blend with quality teak furniture, marble flooring, 42 inc flat screen TV and complimentary internet. Luxurious interiors naturally flow to lush gardens and a private patio overlooking the beautifully manicured fairways.",
@@ -122,8 +123,8 @@ async function VillasSection({ filter, range }) {
     {
       id: 2,
       name: "Kavling Kertanegara",
-      price: 250000,
-      capacity: 2,
+      price: 2500000,
+      size: 228,
       thumbnail: "kavling_kertanegara.jpg",
       description:
         "Step into an expansive 124-sqm, situated in intimate lush gardens, this two-bedrooms villa offers an expansive views of Mt Salak or beautifully manicured fairways and the privacy of its secluded location in a tranquil corner of the property. Inside this villa, luxuriate in elegant comfort with high ceilings and marble floors, designed to exude a regal residential experience, complete with separate Butler`s quarters.",
@@ -131,8 +132,8 @@ async function VillasSection({ filter, range }) {
     {
       id: 3,
       name: "Kavling Rosewood",
-      price: 500000,
-      capacity: 6,
+      price: 50000000,
+      size: 451,
       thumbnail: "kavling_rosewood.jpg",
       description:
         "Imagine an enchanting sanctuary of serenity, beautifully set just steps from private terrace. This one-ofa-kind villa measuring 150-sqm is perfect getaway for families and groups, with two bedrooms, spacious living room, 2 bathrooms and a private swimming pool. Located on the side of hotel building and surrounded by tropical foliage, this secluded villa offers beautiful sceneries of Mt. Salak.",
@@ -140,8 +141,8 @@ async function VillasSection({ filter, range }) {
     {
       id: 4,
       name: "Kavling Salvador",
-      price: 400000,
-      capacity: 5,
+      price: 4000000,
+      size: 124,
       thumbnail: "kavling_salvador.jpg",
       description:
         "Our two bedrooms villa measuring 124-sqm offer ample space to relax and recharge your body. Indulge in the outdoor Jacuzzi, or simply drift off to sleep in a sumptuous king-size bed. Our Jacuzzi villa is the prefect getaway for couples and provide the ideal setting for an idyllic break.",
@@ -223,13 +224,14 @@ async function VillasSection({ filter, range }) {
       <h1 className={styles.sectionHeading}>Temukan Kavling Ideal Anda</h1>
       <div className={styles.villasGrid}>
         {kavlings.map((item) => (
-          <VillaItem
+          <KavlingItem
             key={item.id}
             id={item.id}
             title={item.name}
             price={item.price}
             imgPath={item.thumbnail}
             description={item.description}
+            size={item.size}
             link="#"
           />
         ))}
