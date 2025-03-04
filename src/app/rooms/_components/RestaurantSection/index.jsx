@@ -7,7 +7,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronLeft, faChevronRight } from "@fortawesome/free-solid-svg-icons";
 import RestaurantItem from "../RestaurantItem";
 
-async function RoomsSection() {
+function RoomsSection() {
   const restaurants = [
     {
       id: 1,

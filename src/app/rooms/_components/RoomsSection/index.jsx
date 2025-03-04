@@ -9,7 +9,7 @@ import BallroomItem from "../BallroomItem";
 import Facility from "../Facility";
 import Restaurant from "../RestaurantSection";
 
-async function RoomsSection({ filter }) {
+function RoomsSection() {
   const rooms = [
     {
       id: 1,
@@ -125,28 +125,6 @@ async function RoomsSection({ filter }) {
 
   let filteredRooms = rooms;
   let filteredBallrooms = ballrooms;
-
-  switch (filter) {
-    case "high-price":
-      filteredRooms = filteredRooms.sort((a, b) => b.price - a.price);
-      filteredBallrooms = filteredBallrooms.sort((a, b) => b.price - a.price);
-      break;
-    case "low-price":
-      filteredRooms = filteredRooms.sort((a, b) => a.price - b.price);
-      filteredBallrooms = filteredBallrooms.sort((a, b) => a.price - b.price);
-      break;
-    case "min-guests":
-      filteredRooms = filteredRooms.sort((a, b) => b.capacity - a.capacity);
-      filteredBallrooms = filteredBallrooms.sort((a, b) => b.capacity - a.capacity);
-      break;
-    case "max-guests":
-      filteredRooms = filteredRooms.sort((a, b) => a.capacity - b.capacity);
-      filteredBallrooms = filteredBallrooms.sort((a, b) => a.capacity - b.capacity);
-      break;
-    default:
-      filteredRooms = filteredRooms;
-      filteredBallrooms = filteredBallrooms;
-  }
 
   const [currentIndexRooms, setCurrentIndexRooms] = useState(0);
   const [currentIndexBallrooms, setCurrentIndexBallrooms] = useState(0);

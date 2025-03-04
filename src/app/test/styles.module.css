@@ -1,0 +1,145 @@
+.roomsGrid {
+    display: grid;
+    gap: 20px;
+    grid-template-columns: repeat(1, 1fr);
+    position: relative;
+    z-index: 1;
+}
+
+.sectionHeading {
+    font-size: 20px;
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+
+.carousel {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.navButton {
+    background-color: #333;
+    color: #fff;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    transition: background-color 0.3s ease;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 2;
+}
+
+.navButton:hover {
+    background-color: #555;
+}
+
+.navButton:disabled,
+.navButton.disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.navButton svg {
+    font-size: 20px;
+}
+
+.navButton.left {
+    left: -20px;
+}
+
+.navButton.right {
+    right: -20px;
+}
+
+@media (min-width: 768px) {
+    .roomsGrid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+.container {
+    padding: 16px;
+  }
+  
+  .grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+  
+  @media (min-width: 640px) {
+    .grid {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+  
+  @media (min-width: 1024px) {
+    .grid {
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
+  }
+  
+  .roomItem {
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .imgOverlay {
+    position: relative;
+    width: 100%;
+    height: 200px;
+  }
+  
+  .image {
+    object-fit: cover;
+  }
+  
+  .roomDescription {
+    padding: 16px;
+  }
+  
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .roomTitle {
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: #386c64;
+  }
+  
+  .rating {
+    background-color: #21564e;
+    color: white;
+    font-size: 0.875rem;
+    font-weight: 700;
+    padding: 4px 8px;
+    border-radius: 4px;
+  }
+  
+  .description {
+    color: #6b7280;
+    font-size: 0.875rem;
+    margin-top: 10px;
+    margin-bottom: 5px;
+  }
+  
+  .price {
+    color: #386c64;
+    font-size: 1.125rem;
+    font-weight: 700;
+  }
