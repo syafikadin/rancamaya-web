@@ -11,7 +11,7 @@ import BookingPolicy from "../BookingPolicy";
 import { notFound, redirect } from "next/navigation";
 import { bookingSchema } from "@/app/_lib/zodSchemas";
 import { cookies } from "next/headers";
-import SimulationKPR from "../SimulationKPR";
+import SimulationKPR from "@/app/_components/SimulasiKPR";
 
 // const SUPABASE_ROOMS_URL = process.env.NEXT_PUBLIC_SUPABASE_IMGS_URL;
 const room_dummy = {
