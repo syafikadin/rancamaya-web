@@ -56,14 +56,14 @@ export default function Home() {
       <Heading className={styles.heading}>Simulasi KPR</Heading>
       <hr className="decriptionDivider" />
       <div className={styles.formGroup}>
-        <label htmlFor="harga-rumah">Harga Rumah</label>
+        <label htmlFor="harga-rumah">Harga Estate</label>
         <div className={styles.currency}>
           <input
             type="text"
             id="harga-rumah"
             value={hargaRumah}
             onChange={handleHargaRumahChange}
-            placeholder="Masukkan harga rumah"
+            placeholder="Masukkan harga estate"
           />
         </div>
       </div>
