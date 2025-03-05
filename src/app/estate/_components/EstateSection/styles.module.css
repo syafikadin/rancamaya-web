@@ -28,6 +28,10 @@
   gap: 30px;
 }
 
+.villasGrid:last-child {
+  max-width: 350px; /* Atur sesuai kebutuhan */
+}
+
 /* Villa Item Style */
 .villasGrid .villaItem {
   border-radius: 10px; 

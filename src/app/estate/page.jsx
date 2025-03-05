@@ -2,7 +2,7 @@ import FilterSection from "./_components/FilterSection";
 
 import styles from "./styles.module.css";
 import BannerVilla from "../_components/BannerVilla";
-import VillasSection from "./_components/VillasSection/page";
+import EstateSection from "./_components/EstateSection";
 import { Suspense } from "react";
 import Loader from "../_ui/Loader";
 
@@ -11,12 +11,12 @@ export const metadata = {
   description: "Discover and book a room at the Hotel Booking App ",
 };
 
-function Villas({ searchParams }) {
+function Estates({ searchParams }) {
   const filter = searchParams?.sort ?? "default";
   const range = searchParams?.range ?? "";
   return (
     <>
-      <BannerVilla title={"Temukan Estate Impian Anda – Sewa Mudah & Nyaman!"} />
+      <BannerVilla title={"Miliki Estate Indah, Berkualitas dan Nyaman!"} />
 
       <div className={`container ${styles.villaHolder}`}>
         <FilterSection filters={{ filter, range }} />
@@ -29,11 +29,11 @@ function Villas({ searchParams }) {
             </div>
           }
         >
-          <VillasSection filter={filter} range={range} />
+          <EstateSection filter={filter} range={range} />
         </Suspense>
       </div>
     </>
   );
 }
 
-export default Villas;
+export default Estates;

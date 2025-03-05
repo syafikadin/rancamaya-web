@@ -3,8 +3,8 @@ import RoomContainer from "./_components/RoomContainer";
 import LoadingSpinner from "@/app/_ui/LoadingSpinner";
 
 export const metadata = {
-  title: "Rent House Details",
-  description: "Rent a cozy home with complete facilities in a strategic location, perfect for business or leisure.",
+  title: "House Details",
+  description: "Find your dream home with a modern design, strategic location, and the best price.",
 };
 
 function RentHouseDetail({ params }) {

@@ -36,8 +36,8 @@ function Navbar({ signOutAction }) {
             </li>
             <li>
               <Link
-                className={pathname.includes("villas") ? "active" : ""}
-                href="/villas"
+                className={pathname.includes("estate") ? "active" : ""}
+                href="/estate"
                 onClick={() => setHideMenu(true)}
               >
                 Estate

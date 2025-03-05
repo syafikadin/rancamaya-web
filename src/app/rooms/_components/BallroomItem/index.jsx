@@ -5,7 +5,7 @@ import { FaUser } from "react-icons/fa";
 
 // const SUPABASE_ROOMS_URL = process.env.NEXT_PUBLIC_SUPABASE_IMGS_URL;
 
-function BallroomItem({ id, imgPath, price, title, description, capacity }) {
+function BallroomItem({ id, imgPath, title, description, capacity }) {
   return (
     <div className={styles.roomItem}>
       <Link href={`ballroom/${id}`}>
@@ -22,7 +22,7 @@ function BallroomItem({ id, imgPath, price, title, description, capacity }) {
             </div>
           </div>
           <p className={styles.description}>{description}</p>
-          <p className={styles.price}>IDR {price.toLocaleString("id-ID")}</p>
+          {/* <p className={styles.price}>IDR {price.toLocaleString("id-ID")}</p> */}
         </div>
       </Link>
     </div>

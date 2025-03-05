@@ -8,8 +8,10 @@ import { faChevronLeft, faChevronRight } from "@fortawesome/free-solid-svg-icons
 import BallroomItem from "../BallroomItem";
 import Facility from "../Facility";
 import Restaurant from "../RestaurantSection";
+import VillaItem from "../VillaItem";
+import RentHouseItem from "../RentHouseItem";
 
-function RoomsSection() {
+function RoomsSection({ filter }) {
   const rooms = [
     {
       id: 1,
@@ -61,7 +63,6 @@ function RoomsSection() {
     {
       id: 1,
       name: "Banyan Ballroom",
-      price: 200000,
       capacity: 350,
       thumbnail: "banyan_ballroom.jpg",
       description:
@@ -70,7 +71,6 @@ function RoomsSection() {
     {
       id: 2,
       name: "Palm Rooms",
-      price: 150000,
       capacity: 110,
       thumbnail: "pal_rooms.jpg",
       description:
@@ -79,7 +79,6 @@ function RoomsSection() {
     {
       id: 3,
       name: "Pine Board Rooms",
-      price: 300000,
       capacity: 18,
       thumbnail: "pine_board_rooms.jpg",
       description:
@@ -88,7 +87,6 @@ function RoomsSection() {
     {
       id: 4,
       name: "Maple Rooms",
-      price: 500000,
       capacity: 40,
       thumbnail: "maple_rooms.jpg",
       description:
@@ -97,7 +95,6 @@ function RoomsSection() {
     {
       id: 5,
       name: "Diamond Room",
-      price: 800000,
       capacity: 300,
       thumbnail: "diamond_room.jpg",
       description:
@@ -106,7 +103,6 @@ function RoomsSection() {
     {
       id: 6,
       name: "Acacia Rooms",
-      price: 800000,
       capacity: 50,
       thumbnail: "acacia_rooms.jpg",
       description:
@@ -115,16 +111,120 @@ function RoomsSection() {
     {
       id: 7,
       name: "Mahogany Rooms",
-      price: 800000,
       capacity: 120,
       thumbnail: "mahogany_room.jpg",
       description:
         "Leading on from Rancamaya Golf and Country Club, The Mahogany Room doubles up as an elegant boardroom or private dining room, ideal for corporate meetings or small lunch and dinner parties.",
     },
   ];
+  const villas = [
+    {
+      id: 1,
+      name: "One Bedroom",
+      price: 300000,
+      capacity: 4,
+      thumbnail: "one_bedroom.jpg",
+      description:
+        "Perfect for privacy and relaxation, families or couples, this one-bedroom villa offers 95-sqm of tastefully decorated living space where the traditional and the contemporary seamlessly blend with quality teak furniture, marble flooring, 42 inc flat screen TV and complimentary internet. Luxurious interiors naturally flow to lush gardens and a private patio overlooking the beautifully manicured fairways.",
+    },
+    {
+      id: 2,
+      name: "Two Bedroom",
+      price: 250000,
+      capacity: 2,
+      thumbnail: "two_bedroom.png",
+      description:
+        "Step into an expansive 124-sqm, situated in intimate lush gardens, this two-bedrooms villa offers an expansive views of Mt Salak or beautifully manicured fairways and the privacy of its secluded location in a tranquil corner of the property. Inside this villa, luxuriate in elegant comfort with high ceilings and marble floors, designed to exude a regal residential experience, complete with separate Butler`s quarters.",
+    },
+    {
+      id: 3,
+      name: "Two Bedroom Pool",
+      price: 500000,
+      capacity: 6,
+      thumbnail: "two_bedroom_pool.jpg",
+      description:
+        "Imagine an enchanting sanctuary of serenity, beautifully set just steps from private terrace. This one-ofa-kind villa measuring 150-sqm is perfect getaway for families and groups, with two bedrooms, spacious living room, 2 bathrooms and a private swimming pool. Located on the side of hotel building and surrounded by tropical foliage, this secluded villa offers beautiful sceneries of Mt. Salak.",
+    },
+    {
+      id: 4,
+      name: "Two Bedroom Jacuzzi",
+      price: 400000,
+      capacity: 5,
+      thumbnail: "two_bedroom_jacuzzi.jpeg",
+      description:
+        "Our two bedrooms villa measuring 124-sqm offer ample space to relax and recharge your body. Indulge in the outdoor Jacuzzi, or simply drift off to sleep in a sumptuous king-size bed. Our Jacuzzi villa is the prefect getaway for couples and provide the ideal setting for an idyllic break.",
+    },
+    {
+      id: 5,
+      name: "Private Pool Villa",
+      price: 600000,
+      capacity: 8,
+      thumbnail: "superior_queen.jpg",
+      description:
+        "Experience the unrivalled majesty of the triplex-style in a 125-sqm Lagoon Family Suite, an oasis of sophistication blending stylish design for an unforgettable stay. The dramatic living room opens on to a large terrace with direct access to an infinity pool and expansive views of nearby Mt. Salak and of the beautifully manicured golf course",
+    },
+  ];
+  const rentHouse = [
+    {
+      id: 1,
+      name: "The Summit 82",
+      price: 3400000,
+      capacity: 6,
+      bedroom: 3,
+      bathroom: 2,
+      thumbnail: "thesummit_82.jpg",
+      description:
+        "Rancamaya Golf Estate, relish in this great family vacation spot; a beautiful unit in a beautiful development. Enjoy mountain views from your large second floor balcony. luxuriate in elegant comfort with high ceilings and marble floors, designed to exude a regal residential experience",
+    },
+    {
+      id: 2,
+      name: "The Summit 02",
+      price: 3400000,
+      capacity: 6,
+      bedroom: 3,
+      bathroom: 2,
+      thumbnail: "thesummit_02.jpg",
+      description:
+        "Step into an expansive 124-sqm, situated in intimate lush gardens, this two-bedrooms villa offers an expansive views of Mt Salak or beautifully manicured fairways and the privacy of its secluded location in a tranquil corner of the property. Inside this villa, luxuriate in elegant comfort with high ceilings and marble floors, designed to exude a regal residential experience, complete with separate Butler`s quarters.",
+    },
+    {
+      id: 3,
+      name: "The Summit 03",
+      price: 3400000,
+      capacity: 6,
+      bedroom: 3,
+      bathroom: 2,
+      thumbnail: "thesummit_03.jpg",
+      description:
+        "Imagine an enchanting sanctuary of serenity, beautifully set just steps from private terrace. This one-ofa-kind villa measuring 150-sqm is perfect getaway for families and groups, with two bedrooms, spacious living room, 2 bathrooms and a private swimming pool. Located on the side of hotel building and surrounded by tropical foliage, this secluded villa offers beautiful sceneries of Mt. Salak.",
+    },
+    {
+      id: 4,
+      name: "The Summit 86",
+      price: 3800000,
+      capacity: 6,
+      bedroom: 3,
+      bathroom: 2,
+      thumbnail: "thesummit_86.jpg",
+      description:
+        "Our two bedrooms villa measuring 124-sqm offer ample space to relax and recharge your body. Indulge in the outdoor Jacuzzi, or simply drift off to sleep in a sumptuous king-size bed. Our Jacuzzi villa is the prefect getaway for couples and provide the ideal setting for an idyllic break.",
+    },
+    {
+      id: 5,
+      name: "Balcony Grande 22",
+      price: 2000000,
+      capacity: 4,
+      bedroom: 2,
+      bathroom: 1,
+      thumbnail: "balcony_grande_22.jpg",
+      description:
+        "Experience the unrivalled majesty of the triplex-style in a 125-sqm Lagoon Family Suite, an oasis of sophistication blending stylish design for an unforgettable stay. The dramatic living room opens on to a large terrace with direct access to an infinity pool and expansive views of nearby Mt. Salak and of the beautifully manicured golf course",
+    },
+  ];
 
   let filteredRooms = rooms;
   let filteredBallrooms = ballrooms;
+  let filteredVillas = villas;
 
   const [currentIndexRooms, setCurrentIndexRooms] = useState(0);
   const [currentIndexBallrooms, setCurrentIndexBallrooms] = useState(0);
@@ -166,6 +266,28 @@ function RoomsSection() {
       prev + cardsToShow < filteredBallrooms.length ? prev + cardsToShow : prev
     );
   };
+
+  switch (filter) {
+    case "high-price":
+      filteredVillas = filteredVillas.sort((a, b) => b.price - a.price);
+      filteredRooms = filteredRooms.sort((a, b) => b.price - a.price);
+      break;
+    case "low-price":
+      filteredVillas = filteredVillas.sort((a, b) => a.price - b.price);
+      filteredRooms = filteredRooms.sort((a, b) => a.price - b.price);
+      break;
+    case "min-guests":
+      filteredVillas = filteredVillas.sort((a, b) => b.capacity - a.capacity);
+      filteredRooms = filteredRooms.sort((a, b) => b.capacity - a.capacity);
+      break;
+    case "max-guests":
+      filteredVillas = filteredVillas.sort((a, b) => a.capacity - b.capacity);
+      filteredRooms = filteredRooms.sort((a, b) => a.capacity - b.capacity);
+      break;
+    default:
+      filteredVillas = filteredVillas;
+      filteredRooms = filteredVillas;
+  }
 
   return (
     <div>
@@ -239,7 +361,6 @@ function RoomsSection() {
                   key={item.id}
                   id={item.id}
                   title={item.name}
-                  price={item.price}
                   capacity={item.capacity}
                   imgPath={item.thumbnail}
                   description={item.description}
@@ -259,6 +380,41 @@ function RoomsSection() {
             <FontAwesomeIcon icon={faChevronRight} />
           </button>
         </div>
+      </div>
+
+      {/* Villa */}
+      <h1 className={styles.sectionHeading}>Liburan Mewah di Villa Nyaman & Elegan</h1>
+      <div className={styles.roomsGrid}>
+        {filteredVillas.map((item) => (
+          <VillaItem
+            key={item.id}
+            id={item.id}
+            title={item.name}
+            price={item.price}
+            imgPath={item.thumbnail}
+            description={item.description}
+            link="#"
+          />
+        ))}
+      </div>
+
+      {/* Rent House */}
+      <h1 className={styles.sectionHeading}>Sewa Rumah Impian Anda</h1>
+      <div className={styles.roomsGrid}>
+        {rentHouse.map((item) => (
+          <RentHouseItem
+            key={item.id}
+            id={item.id}
+            title={item.name}
+            price={item.price}
+            capacity={item.capacity}
+            bedroom={item.bedroom}
+            bathroom={item.bathroom}
+            imgPath={item.thumbnail}
+            description={item.description}
+            link="#"
+          />
+        ))}
       </div>
     </div>
   );
