@@ -4,6 +4,7 @@ import Heading from "@/app/_ui/Heading";
 import ClusterItem from "../RichmondItem";
 import SimulationKPR from "@/app/_components/SimulasiKPR";
 import Facilities from "../Facilities";
+import WhatsAppFloating from "@/app/_components/WhatsappFloating";
 
 const richmond = [
   {
@@ -136,6 +137,7 @@ function RichmondContainer() {
         />
       </div>
       <SimulationKPR />
+      <WhatsAppFloating />
     </div>
   );
 }

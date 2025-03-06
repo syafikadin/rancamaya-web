@@ -4,6 +4,7 @@ import Heading from "@/app/_ui/Heading";
 import ClusterItem from "../ClusterItem";
 import SimulationKPR from "@/app/_components/SimulasiKPR";
 import Facilities from "../Facilities";
+import WhatsAppFloating from "@/app/_components/WhatsappFloating";
 
 const villas = [
   {
@@ -98,6 +99,22 @@ function ClusterContainer() {
           <ClusterItem key={item.id} item={item} />
         ))}
       </div>
+      {/* <div className={styles.reservation}>
+        <h2>Secure Your Dream Lot at Rancamaya Today</h2>
+        <p>
+          Contact us today to schedule a private tour or inquire about available lots.
+        </p>
+        <Link href="https://wa.me/622180600681" className={styles.whatsappButton}>
+          <Image
+            src="/whatsapp.png"
+            alt="WhatsApp Logo"
+            className={styles.logo}
+            width={24}
+            height={24}
+          />
+          Contact us via WhatsApp
+        </Link>
+      </div> */}
       <div className={styles.sitePlan}>
         <h2>Site Plan</h2>
         <img
@@ -107,6 +124,7 @@ function ClusterContainer() {
         />
       </div>
       <SimulationKPR />
+      <WhatsAppFloating />
     </div>
   );
 }

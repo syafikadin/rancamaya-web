@@ -4,6 +4,7 @@ import Heading from "@/app/_ui/Heading";
 import ClusterItem from "../TheClassItem";
 import SimulationKPR from "@/app/_components/SimulasiKPR";
 import Facilities from "../Facilities";
+import WhatsAppFloating from "@/app/_components/WhatsappFloating";
 
 const villas = [
   {
@@ -42,6 +43,7 @@ function ClusterContainer() {
         />
       </div>
       <SimulationKPR />
+      <WhatsAppFloating />
     </div>
   );
 }
