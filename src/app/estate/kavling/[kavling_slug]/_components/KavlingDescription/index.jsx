@@ -4,7 +4,7 @@ import styles from "./styles.module.css";
 function RoomDescription({ description }) {
   return (
     <div className={styles.description}>
-      <Heading className="text-center">House Description</Heading>
+      <Heading className="text-center">Kavling Description</Heading>
 
       <hr className="decriptionDivider" />
 

@@ -1,13 +1,13 @@
 import { Suspense } from "react";
-import RoomContainer from "./_components/RoomContainer";
+import KavlingContainer from "./_components/KavlingContainer";
 import LoadingSpinner from "@/app/_ui/LoadingSpinner";
 
 export const metadata = {
   title: "Kavling Details",
-  description: "Rent a plot in a strategic location, ideal for both business and personal use. Enjoy a peaceful environment with easy access to public facilities and the city center.",
+  description: "Discover and book a room at the Hotel Booking App ",
 };
 
-function KavlingDetails({ params }) {
+function ClusterDetails({ params }) {
   return (
     <section className="container">
       <Suspense
@@ -17,10 +17,10 @@ function KavlingDetails({ params }) {
           </div>
         }
       >
-        <RoomContainer params={params} />
+        <KavlingContainer params={params} />
       </Suspense>
     </section>
   );
 }
 
-export default KavlingDetails;
+export default ClusterDetails;
