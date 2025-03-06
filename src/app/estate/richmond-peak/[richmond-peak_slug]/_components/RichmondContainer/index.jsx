@@ -131,7 +131,7 @@ function ClusterContainer() {
         <h2>Site Plan</h2>
         <img
           src="/rancamaya-richmond-peak-siteplan.jpg"
-          alt="Amadeus Signature Siteplan"
+          alt="Richmond Peak Siteplan"
           className={styles.sitePlanImage}
         />
       </div>
