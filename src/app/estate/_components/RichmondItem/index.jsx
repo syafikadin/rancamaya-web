@@ -18,7 +18,7 @@ function RichmondItem({
 }) {
   return (
     <div className={styles.villaItem}>
-      <Link href={`richmond/${id}`}>
+      <Link href={`/estate/richmond-peak/${id}`}>
         <div className={styles.imgOverlay}>
           <Image fill src={`/${imgPath}`} alt={title} className={styles.image} />
         </div>
