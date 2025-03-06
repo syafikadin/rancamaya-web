@@ -4,6 +4,8 @@ import Heading from "@/app/_ui/Heading";
 import SimulationKPR from "@/app/_components/SimulasiKPR";
 import { FaBed, FaBath, FaRegSquare, FaCar, FaBuilding } from "react-icons/fa";
 import { RiSofaFill } from "react-icons/ri";
+import Link from "next/link";
+import Image from "next/image";
 
 const richmond = [
   {
@@ -19,7 +21,7 @@ const richmond = [
     garage: 2,
     images: ["kavling_kertanegara.jpg", "kavling_kertanegara_drone.jpg"],
     description:
-      "Perfect for privacy and relaxation, families or couples, this one-bedroom villa offers 95-sqm of tastefully decorated living space where the traditional and the contemporary seamlessly blend with quality teak furniture, marble flooring, 42 inch flat screen TV and complimentary internet. Luxurious interiors naturally flow to lush gardens and a private patio overlooking the beautifully manicured fairways.",
+      "Ideal for investment or residential purposes, this plot offers 283m² of prime land in a serene and strategic location. Surrounded by wide road access, public facilities, and complete infrastructure, including clean water and electricity. Secure legality with a Freehold Certificate (SHM) makes it a perfect choice for those seeking high-value land. The tranquil atmosphere and stunning natural views create a perfect balance between comfort and investment potential.",
   },
 ];
 
@@ -67,6 +69,18 @@ function KavlingContainer() {
                 <FaCar />
                 <span>Garage: {kavling.garage}</span>
               </div>
+            </div>
+            <div className={styles.whatsappInfo}>
+              <Link href="https://wa.me/622180600681" className={styles.whatsappButton}>
+                <Image
+                  src="/whatsapp.png"
+                  alt="WhatsApp Logo"
+                  className={styles.logo}
+                  width={24}
+                  height={24}
+                />
+                Contact us via WhatsApp
+              </Link>
             </div>
           </div>
         </div>
