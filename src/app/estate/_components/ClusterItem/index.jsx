@@ -23,7 +23,7 @@ function ClusterItem({ id, imgPath, price, title, description, status }) {
           </div>
         </div>
       ) : (
-        <Link href={`cluster/${id}`} className={styles.clickableCard}>
+        <Link href={`/estate/cluster/${id}`} className={styles.clickableCard}>
           <div className={styles.imgOverlay}>
             <Image fill src={`/${imgPath}`} alt={title} className={styles.image} />
           </div>
