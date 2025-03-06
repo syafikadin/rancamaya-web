@@ -2,6 +2,8 @@ import React from "react";
 import styles from "./styles.module.css";
 import Heading from "@/app/_ui/Heading";
 import SimulationKPR from "@/app/_components/SimulasiKPR";
+import { FaBed, FaBath, FaRegSquare, FaCar, FaBuilding } from "react-icons/fa";
+import { RiSofaFill } from "react-icons/ri";
 
 const richmond = [
   {
@@ -15,10 +17,7 @@ const richmond = [
     bedroom: 3,
     chair: 2,
     garage: 2,
-    images: [
-      "https://storage.googleapis.com/a1aa/image/brz53b4cNH-l5S9P7JYfRpeIRwwx4DOoaPJzctdEPLA.jpg",
-      "https://storage.googleapis.com/a1aa/image/skg6vVDnEm6Iv74Eq0dmfG5Qk2G9WGCttZbiUcRv0mo.jpg",
-    ],
+    images: ["kavling_kertanegara.jpg", "kavling_kertanegara_drone.jpg"],
     description:
       "Perfect for privacy and relaxation, families or couples, this one-bedroom villa offers 95-sqm of tastefully decorated living space where the traditional and the contemporary seamlessly blend with quality teak furniture, marble flooring, 42 inch flat screen TV and complimentary internet. Luxurious interiors naturally flow to lush gardens and a private patio overlooking the beautifully manicured fairways.",
   },
@@ -34,7 +33,7 @@ function KavlingContainer() {
         <div className={styles.flexContainer}>
           <div className={styles.imageContainer}>
             <img
-              src={kavling.images[1]}
+              src={`/${kavling.images[1]}`}
               alt="Drone view of Kavling Kertanegara"
               className={styles.image}
             />
@@ -45,27 +44,27 @@ function KavlingContainer() {
             <div className={styles.price}>Rp {kavling.price.toLocaleString()}</div>
             <div className={styles.grid}>
               <div className={styles.gridItem}>
-                <i className="fas fa-ruler-combined"></i>
-                <span>Land Size: {kavling.landSize} m2</span>
+                <FaRegSquare />
+                <span>Land Size: {kavling.landSize} m²</span>
               </div>
               <div className={styles.gridItem}>
-                <i className="fas fa-home"></i>
-                <span>Building Size: {kavling.buildingSize} m2</span>
+                <FaBuilding />
+                <span>Building Size: {kavling.buildingSize} m²</span>
               </div>
               <div className={styles.gridItem}>
-                <i className="fas fa-bed"></i>
+                <FaBed />
                 <span>Bedrooms: {kavling.bedroom}</span>
               </div>
               <div className={styles.gridItem}>
-                <i className="fas fa-bath"></i>
+                <FaBath />
                 <span>Bathrooms: {kavling.bathroom}</span>
               </div>
               <div className={styles.gridItem}>
-                <i className="fas fa-couch"></i>
+                <RiSofaFill />
                 <span>Living Rooms: {kavling.chair}</span>
               </div>
               <div className={styles.gridItem}>
-                <i className="fas fa-car"></i>
+                <FaCar />
                 <span>Garage: {kavling.garage}</span>
               </div>
             </div>

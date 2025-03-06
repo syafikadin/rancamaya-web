@@ -118,7 +118,7 @@ const richmond = [
   },
 ];
 
-function ClusterContainer() {
+function RichmondContainer() {
   return (
     <div className={styles.container}>
       <Heading className={styles.heading}>Richmond Peak</Heading>
@@ -140,4 +140,4 @@ function ClusterContainer() {
   );
 }
 
-export default ClusterContainer;
+export default RichmondContainer;
