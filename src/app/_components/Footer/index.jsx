@@ -32,19 +32,19 @@ function Footer() {
           <h3>Link Menu</h3>
           <ul>
             <li>
-              <Link href="/">Homepage</Link>
+              <Link href="/">Home</Link>
             </li>
             <li>
-              <Link href="/rooms">Rooms</Link>
+              <Link href="/rooms">Hotels</Link>
             </li>
             <li>
-              <Link href="/villas">Villas</Link>
+              <Link href="/estate">Estate</Link>
             </li>
             <li>
               <Link href="/golf">Golf</Link>
             </li>
             <li>
-              <Link href={"/contact"}>Contact Us</Link>
+              <Link href={"/about"}>About Us</Link>
             </li>
           </ul>
         </div>
