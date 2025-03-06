@@ -19,7 +19,7 @@ function TheClassItem({
 }) {
   return (
     <div className={styles.villaItem}>
-      <Link href={`the-class/${id}`}>
+      <Link href={`estate/the-class/${id}`}>
         <div className={styles.imgOverlay}>
           <Image fill src={`/${imgPath}`} alt={title} className={styles.image} />
         </div>
