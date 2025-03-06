@@ -225,6 +225,7 @@ function RoomsSection({ filter }) {
   let filteredRooms = rooms;
   let filteredBallrooms = ballrooms;
   let filteredVillas = villas;
+  let filteredRentHouse = rentHouse;
 
   const [currentIndexRooms, setCurrentIndexRooms] = useState(0);
   const [currentIndexBallrooms, setCurrentIndexBallrooms] = useState(0);
@@ -271,22 +272,27 @@ function RoomsSection({ filter }) {
     case "high-price":
       filteredVillas = filteredVillas.sort((a, b) => b.price - a.price);
       filteredRooms = filteredRooms.sort((a, b) => b.price - a.price);
+      filteredRentHouse = filteredRentHouse.sort((a, b) => b.price - a.price);
       break;
     case "low-price":
       filteredVillas = filteredVillas.sort((a, b) => a.price - b.price);
       filteredRooms = filteredRooms.sort((a, b) => a.price - b.price);
+      filteredRentHouse = filteredRentHouse.sort((a, b) => a.price - b.price);
       break;
     case "min-guests":
       filteredVillas = filteredVillas.sort((a, b) => b.capacity - a.capacity);
       filteredRooms = filteredRooms.sort((a, b) => b.capacity - a.capacity);
+      filteredRentHouse = filteredRentHouse.sort((a, b) => b.capacity - a.capacity);
       break;
     case "max-guests":
       filteredVillas = filteredVillas.sort((a, b) => a.capacity - b.capacity);
       filteredRooms = filteredRooms.sort((a, b) => a.capacity - b.capacity);
+      filteredRentHouse = filteredRentHouse.sort((a, b) => a.capacity - b.capacity);
       break;
     default:
       filteredVillas = filteredVillas;
-      filteredRooms = filteredVillas;
+      filteredRooms = filteredRooms;
+      filteredRentHouse = filteredRentHouse;
   }
 
   return (

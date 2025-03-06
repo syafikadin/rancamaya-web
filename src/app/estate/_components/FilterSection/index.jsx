@@ -16,8 +16,6 @@ const options = [
   { value: "default", label: "Default Sorting" },
   { value: "high-price", label: "From High to Low price" },
   { value: "low-price", label: "From Low to High price" },
-  { value: "max-guests", label: "From Max to Min guests" },
-  { value: "min-guests", label: "From Min to Max guests" },
 ];
 
 function FilterSection({ filters }) {

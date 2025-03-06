@@ -4,7 +4,7 @@ import ClusterItem from "../ClusterItem";
 import RichmondItem from "../RichmondItem";
 import TheClassItem from "../TheClassItem";
 
-async function EstateSection({ filter }) {
+function EstateSection({ filter }) {
   const kavlings = [
     {
       id: 1,
@@ -189,6 +189,37 @@ async function EstateSection({ filter }) {
     },
   ];
 
+  let filteredKavling = kavlings;
+  let filteredRichmond = richmond;
+  let filteredTheClass = theclass;
+
+  switch (filter) {
+    case "high-price":
+      filteredKavling = filteredKavling.sort((a, b) => b.price - a.price);
+      filteredRichmond = filteredRichmond.sort((a, b) => b.price - a.price);
+      filteredTheClass = filteredTheClass.sort((a, b) => b.price - a.price);
+      break;
+    case "low-price":
+      filteredKavling = filteredKavling.sort((a, b) => a.price - b.price);
+      filteredRichmond = filteredRichmond.sort((a, b) => a.price - b.price);
+      filteredTheClass = filteredTheClass.sort((a, b) => a.price - b.price);
+      break;
+    case "min-guests":
+      filteredKavling = filteredKavling.sort((a, b) => b.capacity - a.capacity);
+      filteredRichmond = filteredRichmond.sort((a, b) => b.capacity - a.capacity);
+      filteredTheClass = filteredTheClass.sort((a, b) => b.capacity - a.capacity);
+      break;
+    case "max-guests":
+      filteredKavling = filteredKavling.sort((a, b) => a.capacity - b.capacity);
+      filteredRichmond = filteredRichmond.sort((a, b) => a.capacity - b.capacity);
+      filteredTheClass = filteredTheClass.sort((a, b) => a.capacity - b.capacity);
+      break;
+    default:
+      filteredKavling = filteredKavling;
+      filteredRichmond = filteredRichmond;
+      filteredTheClass = filteredTheClass;
+  }
+
   return (
     <div>
       <h1 className={styles.sectionHeading}>Vila Kluster</h1>
@@ -208,7 +239,7 @@ async function EstateSection({ filter }) {
       </div>
       <h1 className={styles.sectionHeading}>Temukan Kavling Ideal Anda</h1>
       <div className={styles.villasGrid}>
-        {kavlings.map((item) => (
+        {filteredKavling.map((item) => (
           <KavlingItem
             key={item.id}
             id={item.id}
@@ -223,7 +254,7 @@ async function EstateSection({ filter }) {
       </div>
       <h1 className={styles.sectionHeading}>Richmond Peak</h1>
       <div className={styles.villasGrid}>
-        {richmond.map((item) => (
+        {filteredRichmond.map((item) => (
           <RichmondItem
             key={item.id}
             id={item.id}
@@ -242,7 +273,7 @@ async function EstateSection({ filter }) {
       </div>
       <h1 className={styles.sectionHeading}>The Class</h1>
       <div className={styles.villasGrid}>
-        {theclass.map((item) => (
+        {filteredTheClass.map((item) => (
           <TheClassItem
             key={item.id}
             id={item.id}

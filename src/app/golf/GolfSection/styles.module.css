@@ -1,0 +1,270 @@
+/* General styling for all buttons */
+.submitButton,
+.whatsappButton {
+  width: 100%; /* Ensure the buttons take the full width of their container */
+  padding: 0.75rem 1.5rem; /* Consistent padding */
+  border-radius: 0.25rem; /* Rounded corners for all buttons */
+  cursor: pointer; /* Pointer cursor on hover */
+  text-align: center; /* Ensure text is centered */
+}
+
+.submitButton {
+  background-color: #3d767d;
+  color: white;
+  border: none;
+}
+
+.submitButton:hover {
+  background-color: #345e64;
+}
+
+.whatsappButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #25d366;
+  color: white;
+  font-size: 1rem;
+  font-weight: bold;
+  text-decoration: none;
+  margin-top: 1rem;
+}
+
+.whatsappButton:hover {
+  background-color: #1ebe57;
+}
+
+.logo {
+  margin-right: 5px;
+}
+
+/* Main Container */
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  min-height: 100vh;
+  background-color: #e5e7eb;
+  padding-top: 2rem;
+}
+
+/* Reservation Form */
+.reservationForm {
+  display: flex;
+  flex-direction: column;
+  background-color: #f3f4f6;
+  padding: 2rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  margin-bottom: 2rem;
+  width: 100%;
+}
+
+@media (min-width: 768px) {
+  .reservationForm {
+    flex-direction: row;
+  }
+}
+
+.leftPanel {
+  position: relative;
+  flex: 1;
+  background-image: url('https://storage.googleapis.com/a1aa/image/4_QIoJX4w09sIHb5ovZ2WuBPrKdFNW2mEHBaXZfSkqM.jpg');
+  background-size: cover;
+  background-position: center;
+  border-radius: 0.5rem;
+  margin-bottom: 1rem;
+  min-height: 300px;
+}
+
+@media (min-width: 768px) {
+  .leftPanel {
+    margin-bottom: 0;
+    margin-right: 1rem;
+  }
+}
+
+.overlay {
+  position: relative;
+  z-index: 10;
+  padding: 2rem;
+  color: white;
+}
+
+.overlay::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 0.5rem;
+  z-index: -1;
+}
+
+.title {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.description {
+  margin-bottom: 1rem;
+}
+
+/* Right Panel */
+.rightPanel {
+  flex: 1;
+  background-color: white;
+  padding: 2rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  min-height: 300px;
+}
+
+.formGroup {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1rem;
+}
+
+@media (min-width: 768px) {
+  .formGroup {
+    flex-direction: row;
+    gap: 1rem;
+  }
+}
+
+.formField {
+  flex: 1;
+  margin-bottom: 1rem;
+}
+
+.formField label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: #4b5563;
+}
+
+.formField input,
+.formField select {
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid #d1d5db;
+  border-radius: 0.25rem;
+}
+
+/* Buttons */
+.submitButton {
+  background-color: #3d767d;
+  color: white;
+  border: none;
+  border-radius: 0.25rem;
+  cursor: pointer;
+}
+
+.submitButton:hover {
+  background-color: #345e64;
+}
+
+/* Additional Content Section */
+.additionalContent {
+  text-align: center;
+  padding: 2rem;
+  background-color: white;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  width: 100%;
+}
+
+.additionalContent h2 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+/* Gallery */
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.galleryItem {
+  flex: 1 1 calc(33.333% - 1rem);
+  background-color: #f3f4f6;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.galleryItem img {
+  max-width: 100%;
+  border-radius: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.galleryItem p {
+  font-size: 1rem;
+  color: #4b5563;
+}
+
+/* Contact Section */
+.contactSection {
+  text-align: center;
+  padding: 2rem;
+  background-color: white;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  margin-bottom: 2rem;
+}
+
+.contactImage {
+  max-width: 100%;
+  height: auto;
+  border-radius: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+  .reservationForm {
+    flex-direction: column; /* Stack the left and right panels vertically */
+  }
+
+  .leftPanel {
+    min-height: 200px; /* Ensure the left panel is not too large on small screens */
+  }
+
+  .rightPanel {
+    padding: 1rem; /* Reduce padding to fit on small screens */
+  }
+
+  .formGroup {
+    flex-direction: column; /* Stack form fields vertically */
+  }
+
+  .formField {
+    margin-bottom: 1rem;
+  }
+
+  .gallery {
+    flex-direction: column; /* Stack gallery items vertically */
+  }
+
+  .galleryItem {
+    flex: 1 1 100%; /* Ensure gallery items take full width */
+  }
+
+  .additionalContent {
+    padding: 1rem; /* Reduce padding for better fit on small screens */
+  }
+
+  .contactSection {
+    padding: 1rem; /* Reduce padding for better fit */
+  }
+}
