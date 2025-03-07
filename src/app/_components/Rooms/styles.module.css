@@ -3,6 +3,13 @@
   background-color: #F1F1F1;
 }
 
+.roomsSection p {
+  text-align: justify;
+  line-height: 1.8;
+  font-size: 16px;
+  color: black;
+}
+
 .carousel {
   display: flex;
   align-items: center;
